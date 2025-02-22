@@ -74,7 +74,7 @@ const Footer = () => {
               <li><a href="https://tinkerhubietcu.github.io/"className="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">TinkerHub IET</a></li>
               <li><a href="http://www.cuiet.info/alumni.php"className="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">Alumni IET</a></li>
               <li><a href="http://www.cuiet.info/forms.php"className="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">Forms to Download</a></li>
-              <li><a href="gradesheet.php"className="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">B.Tech Gradesheet after 05/11/2024</a></li>
+              <li><a href="http://www.cuiet.info/gradesheet.php"className="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">B.Tech Gradesheet after 05/11/2024</a></li>
             </ul>
           </Col>
         </Row>
@@ -84,10 +84,10 @@ const Footer = () => {
           <Col sm={6} md={3}>
             <h6 className="fw-bold">CELLS</h6>
             <ul className="list-unstyled">
-              <li><a href="ragging_cell.php"className="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">IET Anti-Ragging Cell</a></li>
-              <li><a href="grievence_cell.php"className="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">IET Grievance Cell</a></li>
-              <li><a href="womens_cell.php"className="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">IET Women's Cell</a></li>
-              <li><a href="iqac_cell.php"className="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">IET IQAC Cell</a></li>
+              <li><a href="http://www.cuiet.info/ragging_cell.php"className="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">IET Anti-Ragging Cell</a></li>
+              <li><a href="http://www.cuiet.info/grievence_cell.php"className="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">IET Grievance Cell</a></li>
+              <li><a href="http://www.cuiet.info/womens_cell.php"className="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">IET Women's Cell</a></li>
+              <li><a href="http://www.cuiet.info/iqac_cell.php"className="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">IET IQAC Cell</a></li>
             </ul>
           </Col>
         </Row>

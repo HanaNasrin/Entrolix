@@ -14,7 +14,7 @@ function App() {
 
       <Navbar/>
 
-      <Navbar>
+   
     
 
         <BrowserRouter>
@@ -27,7 +27,7 @@ function App() {
      
    
 
-      </Navbar>
+   
       <Home/>
 
     </div>
