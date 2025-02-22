@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import './Home.css'
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -39,7 +40,7 @@ const FAQ = () => {
   return (
     <div className="container my-4">
       <h2 className="mb-3 text-center">
-        <span className="text-warning">Frequently</span> Asked Questions
+        <span className="text-warning textclass">Frequently</span> Asked Questions
       </h2>
       <div className="accordion">
         {faqs.map((faq, index) => (
