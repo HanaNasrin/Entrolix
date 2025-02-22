@@ -1,51 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
+import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const CustomNavbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4">
-      <a className="navbar-brand text-warning fw-bold" href="#">
-        Entrolix
-      </a>
-      <button
-        className="navbar-toggler"
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-expanded={isOpen}
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-
-      <div className={`collapse navbar-collapse justify-content-center ${isOpen ? "show" : ""}`} id="navbarNav">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a className="nav-link text-dark" href="#">Home</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link text-dark" href="#">About</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link text-dark" href="#">Courses</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link text-dark" href="#">Pages</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link text-dark" href="#">Blog</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link text-dark" href="#">Contact</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link text-dark" href="#">Admission Open</a>
-          </li>
-      </ul>
-      </div>
-    </nav>
+    <Navbar expand="lg" className="bg-dark navbar-dark" sticky="top">
+      <Container>
+        <Navbar.Brand href="#home" className="fw-bold text-uppercase">
+        ENTROLIX
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#about">About Us</Nav.Link>
+            <Nav.Link href="#courses">Courses</Nav.Link>
+            <Nav.Link href="#pages">Pages</Nav.Link>
+            <Nav.Link href="#blog">Blog</Nav.Link>
+            <Nav.Link href="#contact">Contact</Nav.Link>
+          </Nav>
+          <Button variant="warning" className="ms-3 text-dark fw-bold">
+            Admissions Open
+          </Button>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default CustomNavbar;
