@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+.content {
+  min-height: 80vh;  /* Push footer down */
+  padding-top: 20px; /* Space below Navbar */
+}
+a {
+  text-decoration: none; /* Default: No underline */
+}
+
+a:hover {
+  text-decoration: underline; /* Underline when hovered */
+}
+
