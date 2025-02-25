@@ -1,26 +1,38 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap Icons
 
 const Navbar = () => {
   return (
-    <nav className="navbar d-flex justify-content-between align-items-center px-4 py-2 custom-navbar">
-      {/* Left Side - Logo */}
-      <div className="d-flex align-items-center">
-        <img
-          src="https://i.pinimg.com/736x/40/51/c0/4051c041611e23ce3137078cac153f10.jpg"
-          alt="Jain Online Logo"
-          height="40"
-        />
-        <span className="ms-2 fw-bold">
-          CUIET <span className="text-muted"> Thenhipalam</span>
-        </span>
+    <nav className="navbar navbar-expand-lg navbar-light bg-white p-2">
+      <div className="container-fluid d-flex justify-content-between align-items-center">
+        <div className="d-flex align-items-center">
+          <img
+            src="https://s3.ap-south-1.amazonaws.com/gotouniv/uploads/577/logo/logo_170X115.png"
+            alt="Logo"
+            className="me-2 img-fluid"
+            style={{ height: "80px" }}
+          />
+          <div className="d-flex flex-column">
+            <span className="fw-bold text-nowrap" style={{ fontSize: "20px" }}>Institute of Engineering and Technology</span>
+            <span className="text-muted text-start" style={{ fontSize: "14px" }}>University of Calicut</span>
+          </div>
+        </div>
+        <div className="d-flex align-items-center">
+          <a
+            href="tel:+919240013650"
+            className="btn text-white d-flex align-items-center px-3 py-2"
+            style={{ borderRadius: "30px", backgroundColor: "#001F60" }}
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/724/724664.png"
+              alt="Phone Icon"
+              className="me-2 img-fluid"
+              style={{ height: "20px", borderRadius: "50%" }}
+            />
+            <span className="d-none d-sm-inline">+91 9240013650</span>
+          </a>
+        </div>
       </div>
-
-      {/* Right Side - Phone Button */}
-      <a href="tel:+919240013650" className="contact-button d-flex align-items-center">
-        <i className="bi bi-telephone me-2"></i> +91 9240013650
-      </a>
     </nav>
   );
 };
