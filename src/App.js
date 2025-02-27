@@ -8,7 +8,9 @@ import Login from './Auth/Login';
 import UserSignUp from './Auth/UserSignUp';
 import AdminLogin from './Auth/AdminLogin';
 import HodSignup from './Auth/HodSignup';
+import ClerkSignup from './Auth/ClerkSignup';
 import AdminDashboard from './Admin/AdminDashbord';
+import SubAdminSignup from './Auth/SubAdminSignup';
 // import "bootstrap-icons/font/bootstrap-icons.css";
 
 function App() {
@@ -23,7 +25,8 @@ function App() {
               <Route path='/adminlogin' element={<AdminLogin/>}/>
               <Route path='/hodsignup' element={<HodSignup/>}/>
               <Route path='/admindashboard' element={<AdminDashboard/>}/>
-              
+              <Route path='/clerksignup' element={<ClerkSignup/>}/>
+              <Route path='/subadminsignup' element={<SubAdminSignup/>}/>
 
           </Routes>  
         </BrowserRouter>
