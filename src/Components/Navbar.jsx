@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 
-// import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap Icon
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min"; // Bootstrap JS for dropdowns
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white p-2">
       <div className="container-fluid d-flex justify-content-between align-items-center">
+        {/* Logo & Institute Info */}
         <div className="d-flex align-items-center">
           <img
             src="https://s3.ap-south-1.amazonaws.com/gotouniv/uploads/577/logo/logo_170X115.png"
@@ -15,11 +16,54 @@ const Navbar = () => {
             style={{ height: "80px" }}
           />
           <div className="d-flex flex-column">
-            <span className="fw-bold text-nowrap" style={{ fontSize: "20px" }}>Institute of Engineering and Technology</span>
-            <span className="text-muted text-start" style={{ fontSize: "14px" }}>University of Calicut</span>
+            <span className="fw-bold text-nowrap" style={{ fontSize: "20px" }}>
+              Institute of Engineering and Technology
+            </span>
+            <span className="text-muted text-start" style={{ fontSize: "14px" }}>
+              University of Calicut
+            </span>
           </div>
         </div>
+
+        {/* Signup & Login Dropdowns */}
         <div className="d-flex align-items-center">
+          {/* Signup Dropdown */}
+          <div className="dropdown me-2">
+            <button
+              className="btn btn-primary dropdown-toggle"
+              type="button"
+              id="signupDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Signup
+            </button>
+            <ul className="dropdown-menu" aria-labelledby="signupDropdown">
+              <li><a className="dropdown-item" href="#">HOD SignUp</a></li>
+              <li><a className="dropdown-item" href="#">Subadmin SignUp</a></li>
+              <li><a className="dropdown-item" href="#">Clerk SignUp</a></li>
+              <li><a className="dropdown-item" href="#">User SignUp</a></li>
+            </ul>
+          </div>
+
+          {/* Login Dropdown */}
+          <div className="dropdown me-3">
+            <button
+              className="btn btn-success dropdown-toggle"
+              type="button"
+              id="loginDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Login
+            </button>
+            <ul className="dropdown-menu" aria-labelledby="loginDropdown">
+              <li><a className="dropdown-item" href="#">Admin Login</a></li>
+              <li><a className="dropdown-item" href="#"> Login</a></li>
+            </ul>
+          </div>
+
+          {/* Contact Button */}
           <a
             href="tel:+919240013650"
             className="btn text-white d-flex align-items-center px-3 py-2"
@@ -36,53 +80,6 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-// const Navbar = () => {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   return (
-//     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4">
-//       <a className="navbar-brand text-warning fw-bold" href="#">
-//        ENTROLIX
-//       </a>
-//       <button
-//         className="navbar-toggler"
-//         type="button"
-//         onClick={() => setIsOpen(!isOpen)}
-//         aria-expanded={isOpen}
-//         aria-label="Toggle navigation"
-//       >
-//         <span className="navbar-toggler-icon"></span>
-//       </button>
-
-//       <div className={`collapse navbar-collapse justify-content-center ${isOpen ? "show" : ""}` } id="navbarNav">
-//         <ul className="navbar-nav">
-//           <li className="nav-item">
-//             <a className="nav-link text-dark" href="#">Home</a>
-//           </li>
-//           <li className="nav-item">
-//             <a className="nav-link text-dark" href="#">About</a>
-//           </li>
-//           <li className="nav-item">
-//             <a className="nav-link text-dark" href="#">Courses</a>
-//           </li>
-//           <li className="nav-item">
-//             <a className="nav-link text-dark" href="#">Pages</a>
-//           </li>
-//           <li className="nav-item">
-//             <a className="nav-link text-dark" href="#">Blog</a>
-//           </li>
-//           <li className="nav-item">
-//             <a className="nav-link text-dark" href="#">Contact</a>
-//           </li>
-//         </ul>
-//       </div>
-
-//       <a className="btn btn-warning text-white px-3" href="#">
-//         Admission Open
-//       </a>
-//     </nav>
-
-
   );
 };
 
