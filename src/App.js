@@ -5,8 +5,9 @@ import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from './Auth/Login';
-import SignUp from './Auth/SignUp';
-import AdminLogin from './Admin/AdminLogin';
+import UserSignUp from './Auth/UserSignUp';
+import AdminLogin from './Auth/AdminLogin';
+import HodSignup from './Auth/HodSignup';
 // import "bootstrap-icons/font/bootstrap-icons.css";
 
 function App() {
@@ -17,8 +18,9 @@ function App() {
           <Routes>
               <Route path='/' element={<Home/>} />
               <Route path='/login' element={<Login/>}/>
-              <Route path='/signup' element={<SignUp/>}/>
+              <Route path='/usersignup' element={<UserSignUp/>}/>
               <Route path='/adminlogin' element={<AdminLogin/>}/>
+              <Route path='/hodsignup' element={<HodSignup/>}/>
               
 
           </Routes>  

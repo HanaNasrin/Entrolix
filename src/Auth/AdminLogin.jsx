@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Login = () => {
+const AdminLogin = () => {
   return (
     <div className="container py-5">
       <div className="row justify-content-center">
@@ -59,5 +59,5 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;
 
