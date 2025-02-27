@@ -31,7 +31,7 @@ const SignUp = () => {
           </select>
           <button className="btn btn-primary rounded-pill">Sign Up</button>
           <p className="text-center mt-2">
-            Already have an account? <a href="#" className="text-primary">Login</a>
+            Already have an account? <a href="Login" className="text-primary">Login</a>
           </p>
         </form>
       </div>
