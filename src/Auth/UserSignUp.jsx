@@ -1,109 +1,30 @@
+
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const SignUp = () => {
   return (
-    <div className="container py-5">
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <div className="card shadow-lg border-0 rounded">
-            <div className="card-body">
-              <div className="text-center mb-4">
-                <img
-                  src="https://i.pinimg.com/474x/7a/6c/e8/7a6ce8bca4bf64faa0bf3990eba2c6cb.jpg"
-                  alt="Signup Illustration"
-                  className="img-fluid rounded-circle"
-                  style={{ width: "300px", height: "300px" }}
-                />
-              </div>
-              <h3 className="text-center text-primary mb-4">Create Account</h3>
-              <form>
-                {/* Full Name Input */}
-                <div className="mb-3">
-                  <label htmlFor="name" className="form-label">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control rounded-pill"
-                    id="name"
-                    placeholder="Enter your full name"
-                  />
-                </div>
-
-                {/* Email Input */}
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    className="form-control rounded-pill"
-                    id="email"
-                    placeholder="Enter your email address"
-                  />
-                </div>
-
-                {/* Password Input */}
-                <div className="mb-3">
-                  <label htmlFor="password" className="form-label">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control rounded-pill"
-                    id="password"
-                    placeholder="Create a password"
-                  />
-                </div>
-
-                {/* Confirm Password Input */}
-                <div className="mb-3">
-                  <label htmlFor="confirm-password" className="form-label">
-                    Confirm Password
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control rounded-pill"
-                    id="confirm-password"
-                    placeholder="Confirm your password"
-                  />
-                </div>
-
-                {/* Department Selection */}
-                <div className="mb-3">
-                  <label htmlFor="department" className="form-label">
-                    Department
-                  </label>
-                  <select
-                    className="form-select rounded-pill"
-                    id="department"
-                  >
-                    <option value="">Select Department</option>
-                    <option value="CS">Computer Science and Engineering</option>
-                    <option value="ECE">Electronics and Communication Engineering</option>
-                    <option value="EP">Electronics and Computer Science Engineering</option>
-                    <option value="EEE">Electrical and Electronics Engineering</option>
-                    <option value="ME">Mechanical Engineering</option>
-                    <option value="PT">Printing Technology</option>
-                  </select>
-                </div>
-
-                {/* Submit Button */}
-                <div className="d-grid">
-                  <button type="button" className="btn btn-primary rounded-pill">
-                    Sign Up
-                  </button>
-                </div>
-
-                {/* Login Link */}
-                <p className="text-center mt-3">
-                  Already have an account? <a href="#" className="text-primary">Login</a>
-                </p>
-              </form>
-            </div>
-          </div>
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <div className="card p-4 shadow-lg border-0 rounded" style={{ width: "350px" }}>
+        <div className="text-center mb-3">
+          <img
+            src="https://i.pinimg.com/474x/7a/6c/e8/7a6ce8bca4bf64faa0bf3990eba2c6cb.jpg"
+            alt="Signup"
+            className="img-fluid rounded-circle"
+            style={{ width: "100px", height: "100px" }}
+          />
         </div>
+        <h4 className="text-center text-primary mb-3">User Sign Up</h4>
+        <form>
+          <input type="text" className="form-control rounded-pill mb-2" placeholder="Full Name" />
+          <input type="email" className="form-control rounded-pill mb-2" placeholder="Email" />
+          <input type="password" className="form-control rounded-pill mb-2" placeholder="Password" />
+          <input type="password" className="form-control rounded-pill mb-3" placeholder="Confirm Password" />
+          <button className="btn btn-primary rounded-pill ">Sign Up</button>
+          <p className="text-center mt-2">
+            Already have an account? <a href="#" className="text-primary">Login</a>
+          </p>
+        </form>
       </div>
     </div>
   );
