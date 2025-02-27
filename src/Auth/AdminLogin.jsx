@@ -16,7 +16,7 @@ const AdminLogin = () => {
                   style={{ width: "300px", height: "300px" }}
                 />
               </div>
-              <h3 className="text-center text-primary mb-4">Login</h3>
+              <h3 className="text-center text-primary mb-4">Admin Login</h3>
               <form>
                 {/* Email Input */}
                 <div className="mb-3">

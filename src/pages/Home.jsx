@@ -46,27 +46,22 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Rules and Regulations */}
+        
         <div className="admission-rules text-left">
           <h2 className="title" style={{ color: "#8B5A2B" }}>Rules and Regulations for Admission</h2>
           <div className="rules-box">
-            <ul className="rules-list">
-              <li>
-                Admission is regulated as per Govt. of Kerala orders.
-              </li>
-              <li>
-                95% of seats are merit-based and filled via the Centralized Allotment Process.
-              </li>
-              <li>
-                This Prospectus is subject to modification by the University of Calicut.
-              </li>
+            <ul className="rules-list" style={{ paddingLeft: "20px", listStylePosition: "inside" }}>
+              <li>Admission is regulated as per Govt. of Kerala orders.</li>
+              <li>95% of seats are merit-based and filled via the Centralized Allotment Process.</li>
+              <li>This Prospectus is subject to modification by the University of Calicut.</li>
             </ul>
           </div>
         </div>
 
+
         {/* Educational Concessions */}
         <div className="container my-4 bg-light p-4 rounded shadow-sm">
-          <h3 className="text-primary" style={{ color: "#D2B48C" }}>Educational Concessions</h3>
+          <h3  style={{ color: "#D2B48C" }}>Educational Concessions</h3>
           <p>
             Students are eligible for educational concession from the Harijan Welfare Department, Kerala, if their annual income is within limits. Applications must be submitted within 15 days of admission.
           </p>
@@ -80,7 +75,7 @@ const Home = () => {
 
         {/* Eligibility for Admission */}
         <div className="container my-4 bg-light p-4 rounded shadow-sm">
-          <h3 className="text-primary"style={{ color: "#E2725B" }}>Eligibility for Admission</h3>
+          <h3 style={{ color: "#E2725B" }}>Eligibility for Admission</h3>
           <h5>Academic</h5>
           <p>
             Candidates must have passed Higher Secondary Examination (Kerala or equivalent) with Physics & Mathematics as compulsory subjects and Chemistry/Computer Science/Biotechnology/Biology as optional, securing at least 45% marks.
@@ -99,7 +94,7 @@ const Home = () => {
         </div>
         <div className="container my-4">
   <div className="bg-light p-4 rounded shadow-sm">
-    <h3 className="text-primary" style={{ color: "#A67B5B" }}>Admission</h3>
+    <h3  style={{ color: "#A67B5B" }}>Admission</h3>
     <p>
       The candidates who wish to be admitted in CUIET should exercise their options at the time of 
       centralized allotment made by the Commissioner for Entrance Examinations, Govt. of Kerala.

@@ -39,10 +39,10 @@ const Navbar = () => {
               Signup
             </button>
             <ul className="dropdown-menu" aria-labelledby="signupDropdown">
-              <li><a className="dropdown-item" href="#">HOD SignUp</a></li>
-              <li><a className="dropdown-item" href="#">Subadmin SignUp</a></li>
-              <li><a className="dropdown-item" href="#">Clerk SignUp</a></li>
-              <li><a className="dropdown-item" href="#">User SignUp</a></li>
+              <li><a className="dropdown-item" href="HodSignup">HOD SignUp</a></li>
+              <li><a className="dropdown-item" href="SubAdminSignup">Subadmin SignUp</a></li>
+              <li><a className="dropdown-item" href="ClerkSignup">Clerk SignUp</a></li>
+              <li><a className="dropdown-item" href="UserSignUp">User SignUp</a></li>
             </ul>
           </div>
 
@@ -58,8 +58,8 @@ const Navbar = () => {
               Login
             </button>
             <ul className="dropdown-menu" aria-labelledby="loginDropdown">
-              <li><a className="dropdown-item" href="#">Admin Login</a></li>
-              <li><a className="dropdown-item" href="#"> Login</a></li>
+              <li><a className="dropdown-item" href="AdminLogin">Admin Login</a></li>
+              <li><a className="dropdown-item" href="Login"> Login</a></li>
             </ul>
           </div>
 
