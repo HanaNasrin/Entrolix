@@ -32,11 +32,11 @@ const Home = () => {
           <div className="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
             {programs.map((program, index) => (
               <div key={index} className="col">
-                <div className="card text-center h-100" style={{ backgroundColor: "#a89372", color: "white",border: "none" }}>
+                <div className="card rounded text-center h-100" style={{ backgroundColor: "rgb(77, 69, 64)", color: "white",border: "none" }}>
                   <div className="card-body">
                     <h5 className="card-title">{program.title}</h5>
                     <p className="card-text">{program.seats} seats</p>
-                    <a href="#" className="btn rounded-pill" style={{ backgroundColor: "#6c5430", color: "white" }}>
+                    <a href="#" className="btn rounded-pill" style={{ backgroundColor: "rgb(175, 170, 166)", color: "rgb(12, 11, 11)" }}>
                       Take Admission
                     </a>
                   </div>
@@ -48,7 +48,7 @@ const Home = () => {
 
         {/* Rules and Regulations */}
         <div className="admission-rules text-left">
-          <h2 className="title">Rules and Regulations for Admission</h2>
+          <h2 className="title" style={{ color: "#8B5A2B" }}>Rules and Regulations for Admission</h2>
           <div className="rules-box">
             <ul className="rules-list">
               <li>
@@ -66,7 +66,7 @@ const Home = () => {
 
         {/* Educational Concessions */}
         <div className="container my-4 bg-light p-4 rounded shadow-sm">
-          <h3 className="text-primary">Educational Concessions</h3>
+          <h3 className="text-primary" style={{ color: "#D2B48C" }}>Educational Concessions</h3>
           <p>
             Students are eligible for educational concession from the Harijan Welfare Department, Kerala, if their annual income is within limits. Applications must be submitted within 15 days of admission.
           </p>
@@ -80,7 +80,7 @@ const Home = () => {
 
         {/* Eligibility for Admission */}
         <div className="container my-4 bg-light p-4 rounded shadow-sm">
-          <h3 className="text-primary">Eligibility for Admission</h3>
+          <h3 className="text-primary"style={{ color: "#E2725B" }}>Eligibility for Admission</h3>
           <h5>Academic</h5>
           <p>
             Candidates must have passed Higher Secondary Examination (Kerala or equivalent) with Physics & Mathematics as compulsory subjects and Chemistry/Computer Science/Biotechnology/Biology as optional, securing at least 45% marks.
@@ -99,7 +99,7 @@ const Home = () => {
         </div>
         <div className="container my-4">
   <div className="bg-light p-4 rounded shadow-sm">
-    <h3 className="text-primary">Admission</h3>
+    <h3 className="text-primary" style={{ color: "#A67B5B" }}>Admission</h3>
     <p>
       The candidates who wish to be admitted in CUIET should exercise their options at the time of 
       centralized allotment made by the Commissioner for Entrance Examinations, Govt. of Kerala.
