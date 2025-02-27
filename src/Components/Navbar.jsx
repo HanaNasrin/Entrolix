@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap Icons
+// import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap Icons
 
 const Navbar = () => {
   return (
@@ -22,6 +22,53 @@ const Navbar = () => {
         <i className="bi bi-telephone me-2"></i> +91 9240013650
       </a>
     </nav>
+// const Navbar = () => {
+//   const [isOpen, setIsOpen] = useState(false);
+
+//   return (
+//     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4">
+//       <a className="navbar-brand text-warning fw-bold" href="#">
+//        ENTROLIX
+//       </a>
+//       <button
+//         className="navbar-toggler"
+//         type="button"
+//         onClick={() => setIsOpen(!isOpen)}
+//         aria-expanded={isOpen}
+//         aria-label="Toggle navigation"
+//       >
+//         <span className="navbar-toggler-icon"></span>
+//       </button>
+
+//       <div className={`collapse navbar-collapse justify-content-center ${isOpen ? "show" : ""}` } id="navbarNav">
+//         <ul className="navbar-nav">
+//           <li className="nav-item">
+//             <a className="nav-link text-dark" href="#">Home</a>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link text-dark" href="#">About</a>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link text-dark" href="#">Courses</a>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link text-dark" href="#">Pages</a>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link text-dark" href="#">Blog</a>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link text-dark" href="#">Contact</a>
+//           </li>
+//         </ul>
+//       </div>
+
+//       <a className="btn btn-warning text-white px-3" href="#">
+//         Admission Open
+//       </a>
+//     </nav>
+
+
   );
 };
 

@@ -4,32 +4,24 @@ import Home from './pages/Home';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
-
-
+import Login from './Auth/Login';
+import SignUp from './Auth/SignUp';
+import AdminLogin from './Admin/AdminLogin';
+// import "bootstrap-icons/font/bootstrap-icons.css";
 
 function App() {
   return (
     <div className="App">
-
       <Navbar/>
-
-   
-    
-
         <BrowserRouter>
           <Routes>
               <Route path='/' element={<Home/>} />
+              <Route path='/login' element={<Login/>}/>
+              <Route path='/signup' element={<SignUp/>}/>
+              <Route path='/adminlogin' element={<AdminLogin/>}/>
           </Routes>  
         </BrowserRouter>
-
       <Footer/>
-     
-   
-
-   
-      <Home/>
-
     </div>
   );
 }
