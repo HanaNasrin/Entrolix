@@ -26,13 +26,13 @@ const Footer = () => {
         {/* Social Media Links */}
         <Row className="text-center md-start">
           <Col>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/ietuocofficial?ti=as#" target="_blank" rel="noopener noreferrer">
               <FaFacebook className="fs-3 mx-2 cursor-pointer text-white" />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/iet_uoc_official/#" target="_blank" rel="noopener noreferrer">
               <FaInstagram className="fs-3 mx-2 cursor-pointer text-white" />
          </a>
-         <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+         <a href="http://www.cuiet.info/admission.php#!" target="_blank" rel="noopener noreferrer">
               <FaYoutube className="fs-3 mx-2 cursor-pointer text-white" />
          </a>
           </Col>
@@ -93,14 +93,7 @@ const Footer = () => {
         </Row>
 
         {/* Copyright Text */}
-        {/* <Row className="text-center text-md-start">
-          <Col>
-            <p className="text-muted small">
-              © Copyright 2025. All Rights Reserved. | Developed & Maintained By
-              Institute of Engineering & Technology - University of Calicut
-            </p>
-          </Col>
-        </Row> */}
+        
         <Row className="text-center mt-3">
             <Col>
                 <p className="text-white small">
