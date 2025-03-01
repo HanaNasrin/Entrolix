@@ -1,7 +1,7 @@
 import './App.css';
 import {BrowserRouter,Routes,Route, useLocation} from 'react-router-dom';
 import Home from './pages/Home';
-import Navbar from './Components/Navbar';
+
 import Footer from './Components/Footer';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from './Auth/Login';
@@ -17,7 +17,11 @@ import SubAdminSignup from './Auth/SubAdminSignup';
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
       {/* <Navbar/> */}
+=======
+      {/* <Navbar/> */} 
+>>>>>>> f4c409a58ce4866ed920e30ce032653895efff9a
         <BrowserRouter>
          <Layout/>
         </BrowserRouter>

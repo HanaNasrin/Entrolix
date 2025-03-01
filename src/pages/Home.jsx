@@ -16,6 +16,7 @@ const Home = () => {
 
   return (
     <div>
+      <Navbar/> 
       <main >
         {/* <Navbar/> */}
         {/* Main Image */}
