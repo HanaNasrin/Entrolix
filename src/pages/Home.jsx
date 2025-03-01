@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar/> 
       <main >
         {/* Main Image */}
         <div className="mb-4 text-center">

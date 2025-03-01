@@ -16,7 +16,7 @@ import SubAdminSignup from './Auth/SubAdminSignup';
 function App() {
   return (
     <div className="App">
-      {/* <Navbar/> */}
+      {/* <Navbar/> */} 
         <BrowserRouter>
           <Routes>
               <Route path='/' element={<Home/>} />
