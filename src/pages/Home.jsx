@@ -2,6 +2,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './Home.css';
+import Navbar from "../Components/Navbar";
 
 const Home = () => {
   const programs = [
@@ -15,6 +16,7 @@ const Home = () => {
 
   return (
     <div>
+      <Navbar/>
       <main >
         {/* Main Image */}
         <div className="mb-4 text-center">
