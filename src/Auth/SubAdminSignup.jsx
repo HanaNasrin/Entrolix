@@ -4,7 +4,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const SignUp = () => {
+const SubAdminSignUp = () => {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className="card p-4 shadow-lg border-0 rounded" style={{ width: "350px" }}>
@@ -32,4 +32,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SubAdminSignUp;

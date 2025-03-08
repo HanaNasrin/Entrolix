@@ -1,62 +1,68 @@
 import './App.css';
-import {BrowserRouter,Routes,Route, useLocation} from 'react-router-dom';
-import Home from './pages/Home';
-
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
+import AdminNavbar from './Components/AdminNavbar';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Login from './Auth/Login';
-import UserSignUp from './Auth/UserSignUp';
-import AdminLogin from './Auth/AdminLogin';
-import HodSignup from './Auth/HodSignup';
-import ClerkSignup from './Auth/ClerkSignup';
-import AdminDashboard from './Admin/AdminDashbord';
-import ClerkDashboard from './Clerk/ClerkDashboard';
-import SubAdminSignup from './Auth/SubAdminSignup';
-// import "bootstrap-icons/font/bootstrap-icons.css";
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
-<<<<<<< HEAD
-      {/* <Navbar/> */}
-=======
-      {/* <Navbar/> */} 
->>>>>>> f4c409a58ce4866ed920e30ce032653895efff9a
-        <BrowserRouter>
-         <Layout/>
-        </BrowserRouter>
-      {/* <Footer/> */}
-    </div>
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
   );
 }
 
+const Layout = () => {
+  // const location = useLocation();
+  // const shouldHideNavbar = ['/clerkdashboard'];
+  // const hideNavbar = shouldHideNavbar.includes(location.pathname);
+  const isAdmin=false
 
-const Layout=()=>{
-  const location= useLocation();
-  const ShouldHideNavbar =['/clerkdashboard']
-  const hideNavbar= ShouldHideNavbar.includes(location.pathname)
-  return(
+  return (
     <div>
-
+      {/* {!hideNavbar && <Navbar />} */}
       
-   {!hideNavbar && <Navbar/>}
-      <div>
-      <Routes>
-              <Route path='/' element={<Home/>} />
-              <Route path='/login' element={<Login/>}/>
-              <Route path='/usersignup' element={<UserSignUp/>}/>
-              <Route path='/adminlogin' element={<AdminLogin/>}/>
-              <Route path='/hodsignup' element={<HodSignup/>}/>
-              <Route path='/clerkdashboard' element={<ClerkDashboard/>}/>
-              <Route path='/clerksignup' element={<ClerkSignup/>}/>
-              <Route path='/subadminsignup' element={<SubAdminSignup/>}/>
+        {/* <Routes> 
+          {/* Define routes directly */}
 
-          </Routes>  
+          <Routes>
+           {/* <Route path='/' element={<Home />} /> */}
+         </Routes>
+
+
+
+          {/* <Route path='/login' element={<Login />} />
+          <Route path='/usersignup' element={<UserSignUp />} />
+          <Route path='/adminlogin' element={<AdminLogin />} />
+          <Route path='/hodsignup' element={<HodSignup />} />
+          <Route path='/clerkdashboard' element={<ClerkDashboard />} />
+          <Route path='/clerksignup' element={<ClerkSignup />} />
+          <Route path='/subadminsignup' element={<SubAdminSignup />} />
+          <Route path='/admindashboard' element={<AdminDashboard/>}/>
+          <Route path='/hodalerts' element={<HodAlerts/>}/>
+          <Route path='/addadmission' element={<AddAdmissionSchedule/>}/>
+          <Route path='/editadmission' element={<EditAdmissionSchedule/>}/>
+          <Route path='/hoddash' element={<HodDash/>}/> */} 
+
+          {/* Mapping additional routes from Routers array if it's an array */}
+          {/* {Array.isArray(Routers) &&
+            Routers.map(({ path, element }, index) => (
+              <Route key={index} path={path} element={element} />
+            ))}
+        </Routes>
       </div>
+      {!hideNavbar && <Footer />} */}
 
+
+        {isAdmin?<AdminNavbar/>:<Navbar/>}
+
+          <Home/>
+
+        <Footer/>
     </div>
-  )
-}
-
+  );
+};
 
 export default App;
