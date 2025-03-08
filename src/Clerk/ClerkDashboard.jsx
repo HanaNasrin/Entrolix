@@ -45,10 +45,10 @@ const ClerkDashboard = () => {
           ) : (
             <>
             <div className="d-flex align-items-center gap-2">
-              <a href="#" className="btn btn-outline-primary rounded-pill ">
+              <a href="/Login" className="btn btn-outline-primary rounded-pill ">
                 Login
               </a>
-              <a href="#" className="btn btn-outline-success rounded-pill me-2">
+              <a href="/ClerkSignup" className="btn btn-outline-success rounded-pill me-2">
                 Sign Up
               </a>
               </div>
