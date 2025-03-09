@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 const ClerkReports = () => {
   const [reports, setReports] = useState([]);
 
-  useEffect(() => {
-    axios.get("/api/reports/user-activity")
-      .then((response) => setReports(response.data))
-      .catch((error) => console.error("Error fetching reports:", error));
-  }, []);
+  // useEffect(() => {
+  //   axios.get("/api/reports/user-activity")
+  //     .then((response) => setReports(response.data))
+  //     .catch((error) => console.error("Error fetching reports:", error));
+  // }, []);
 
   return (
     <div>

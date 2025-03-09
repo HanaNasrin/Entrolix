@@ -13,7 +13,7 @@ const AdminDashboard = () => {
   return (
     <div className="vh-100 d-flex flex-column">
       {/* Full-width Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow px-4">
+      {/* <nav className="navbar navbar-expand-lg navbar-light bg-light shadow px-4">
         <span className="navbar-brand fw-bold">Admin Dashboard</span>
         <div className="ms-auto">
           {isLoggedIn ? (
@@ -35,7 +35,7 @@ const AdminDashboard = () => {
             </>
           )}
         </div>
-      </nav>
+      </nav> */}
 
       {/* Dashboard Section (Sidebar + Main Content) */}
       <div className="d-flex flex-grow-1">

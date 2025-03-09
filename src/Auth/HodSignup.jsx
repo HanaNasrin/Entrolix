@@ -2,7 +2,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const HodSignUp = () => {
+const HodSignup = () => {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className="card p-4 shadow-lg border-0 rounded" style={{ width: "350px" }}>
@@ -39,4 +39,4 @@ const HodSignUp = () => {
   );
 };
 
-export default HodSignUp;
+export default HodSignup;

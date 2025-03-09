@@ -12,50 +12,7 @@ const ClerkDashboard = () => {
 
   return (
     <div className="vh-100 d-flex flex-column">
-      {/* Full-width Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-white  shadow px-4">
-        <div className="container-fluid">
-          {/* Logo & Institute Info */}
-          <a className="navbar-brand d-flex align-items-center" href="#">
-            <img
-              src="https://s3.ap-south-1.amazonaws.com/gotouniv/uploads/577/logo/logo_170X115.png"
-              alt="Logo"
-              className="me-2 img-fluid"
-              style={{ height: "60px" }}
-            />
-            <div className="d-flex flex-column">
-              <span className="fw-bold text-nowrap" style={{ fontSize: "18px" }}>
-                Institute of Engineering and Technology
-              </span>
-              <span className="text-muted text-start" style={{ fontSize: "12px" }}>
-                University of Calicut
-              </span>
-            </div>
-          </a>
-        </div>
-        <div className="ms-auto d-flex align-items-center">
-          {isLoggedIn ? (
-            <div className="d-flex align-items-center">
-              <FaUser className="me-2" />
-              <span className="me-3" style={{ whiteSpace: "nowrap" }}>Hello, Clerk</span>
-              <button className="btn btn-danger rounded-pill" onClick={handleLogout}>
-                Logout
-              </button>
-            </div>
-          ) : (
-            <>
-            <div className="d-flex align-items-center gap-2">
-              <a href="/Login" className="btn btn-outline-primary rounded-pill ">
-                Login
-              </a>
-              <a href="/ClerkSignup" className="btn btn-outline-success rounded-pill me-2">
-                Sign Up
-              </a>
-              </div>
-            </>
-          )}
-        </div>
-      </nav>
+
 
       {/* Dashboard Section (Sidebar + Main Content) */}
       <div className="d-flex flex-grow-1">

@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-// import AdminNavbar from "./AdminNavbar";
 
-const ManageUsers = () => {
+const SubAdminManageUsers = () => {
   const [users, setUsers] = useState([
     { id: 1, name: "John Doe", email: "john@example.com", role: "Admin", isBlocked: false },
     { id: 2, name: "Jane Smith", email: "jane@example.com", role: "Sub Admin", isBlocked: false },
     { id: 3, name: "Bob Johnson", email: "bob@example.com", role: "Clerk", isBlocked: false },
   ]);
 
-  const handleToggleBlock = (id) => {
-    setUsers(users.map(user => 
-      user.id === id ? { ...user, isBlocked: !user.isBlocked } : user
-    ));
-  };
+//   const handleToggleBlock = (id) => {
+//     setUsers(users.map(user => 
+//       user.id === id ? { ...user, isBlocked: !user.isBlocked } : user
+//     ));
+//   };
 
   return (
     <div className="container mt-4">
@@ -37,8 +36,8 @@ const ManageUsers = () => {
                 <button 
                 //   className={btn ${user.isBlocked ? "btn-success" : "btn-warning"}} 
                 //   onClick={() => handleToggleBlock(user.id)}
-                >
-                       block {/* {user.isBlocked ? "Unblock" : "Block"} */}
+                >blc
+                  {/* {user.isBlocked ? "Unblock" : "Block"} */}
                 </button>
               </td>
             </tr>
@@ -49,4 +48,4 @@ const ManageUsers = () => {
   );
 };
 
-export default ManageUsers;
+export default SubAdminManageUsers;

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 // import AdminNavbar from "./AdminNavbar";
-import Sidebar from "../common/Sidebar";
 
 const ManageAdmission = () => {
   const [admissions, setAdmissions] = useState([
@@ -23,7 +22,6 @@ const ManageAdmission = () => {
     <div>
       {/* <AdminNavbar /> */}
       <div className="d-flex">
-        <Sidebar />
         <div className="container mt-4">
           <h3 className="mb-3">Manage Admission</h3>
           <table className="table table-bordered">

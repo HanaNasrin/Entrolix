@@ -5,6 +5,17 @@ import Footer from './Components/Footer';
 import AdminNavbar from './Components/AdminNavbar';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from './pages/Home';
+import Login from './Auth/Login';
+import AdminLogin from './Auth/AdminLogin';
+import UserSignUp from './Auth/UserSignup';
+import HodSignup from './Auth/HodSignup';
+import ClerkSignup from './Auth/ClerkSignup';
+import SubAdminSignup from './Auth/SubAdminSignup';
+import UserRouter from './User/UserRouter';
+import AdminRouter from './Admin/AdminRouter';
+import SubAdminRouter from './SubAdmin/SubAdminRouter';
+import HodRouter from './HOD/HodRouter';
+import ClerkRouter from './Clerk/ClerkRouter';
 
 function App() {
   return (
@@ -15,52 +26,32 @@ function App() {
 }
 
 const Layout = () => {
-  // const location = useLocation();
-  // const shouldHideNavbar = ['/clerkdashboard'];
+  const location = useLocation();
+  const shouldHideNavbar = ['/clerkdashboard'];
   // const hideNavbar = shouldHideNavbar.includes(location.pathname);
-  const isAdmin=false
+  const isAdmin=true
 
   return (
     <div>
-      {/* {!hideNavbar && <Navbar />} */}
-      
-        {/* <Routes> 
-          {/* Define routes directly */}
-
+          {isAdmin?<AdminNavbar/>:<Navbar/>}
           <Routes>
-           {/* <Route path='/' element={<Home />} /> */}
+            
+           <Route path='/' element={<Home />} />
+           <Route path="/login" element = { <Login/> } />
+           <Route path='/adminlogin' element={<AdminLogin />} />
+           <Route path='/usersignup' element={<UserSignUp />} />
+           <Route path='/hodsignup' element={<HodSignup />} />
+           <Route path='/clerksignup' element={<ClerkSignup />} />
+           <Route path='/subadminsignup' element={<SubAdminSignup />} />
+           <Route path="/*" element={<UserRouter />} />
+           <Route path="/admin/*" element={<AdminRouter />} />
+           <Route path="/subadmin/*" element={<SubAdminRouter />} />
+           <Route path="/clerk/*" element={<ClerkRouter />} />
+           <Route path="/hod/*" element={<HodRouter />} />
+           
          </Routes>
-
-
-
-          {/* <Route path='/login' element={<Login />} />
-          <Route path='/usersignup' element={<UserSignUp />} />
-          <Route path='/adminlogin' element={<AdminLogin />} />
-          <Route path='/hodsignup' element={<HodSignup />} />
-          <Route path='/clerkdashboard' element={<ClerkDashboard />} />
-          <Route path='/clerksignup' element={<ClerkSignup />} />
-          <Route path='/subadminsignup' element={<SubAdminSignup />} />
-          <Route path='/admindashboard' element={<AdminDashboard/>}/>
-          <Route path='/hodalerts' element={<HodAlerts/>}/>
-          <Route path='/addadmission' element={<AddAdmissionSchedule/>}/>
-          <Route path='/editadmission' element={<EditAdmissionSchedule/>}/>
-          <Route path='/hoddash' element={<HodDash/>}/> */} 
-
-          {/* Mapping additional routes from Routers array if it's an array */}
-          {/* {Array.isArray(Routers) &&
-            Routers.map(({ path, element }, index) => (
-              <Route key={index} path={path} element={element} />
-            ))}
-        </Routes>
-      </div>
-      {!hideNavbar && <Footer />} */}
-
-
-        {isAdmin?<AdminNavbar/>:<Navbar/>}
-
-          <Home/>
-
-        <Footer/>
+         <Home/>
+         <Footer/>    
     </div>
   );
 };

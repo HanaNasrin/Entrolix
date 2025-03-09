@@ -1,6 +1,6 @@
 import React from "react";
 
-const SubadminReports = () => {
+const SubAdminReports = () => {
   // Dummy data
   const totalStudents = 500;
   const departments = [
@@ -86,4 +86,4 @@ const SubadminReports = () => {
   );
 };
 
-export default SubadminReports;
+export default SubAdminReports;

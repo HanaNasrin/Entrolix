@@ -112,7 +112,7 @@ const Navbar = () => {
           {isLoggedIn ? (
             <div className="d-flex align-items-center">
               <FaUser className="me-2" />
-              <span className="me-3">Hello, Admin</span>
+              <span className="me-3">Hello</span>
               <button className="btn btn-danger rounded-pill" onClick={() => navigate("/")}>Logout</button>
             </div>
           ) : null}
