@@ -16,6 +16,7 @@ import AdminRouter from './Admin/AdminRouter';
 import SubAdminRouter from './SubAdmin/SubAdminRouter';
 import HodRouter from './HOD/HodRouter';
 import ClerkRouter from './Clerk/ClerkRouter';
+import TestAPI from './Clerk/Scholarships';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ const Layout = () => {
   const location = useLocation();
   const shouldHideNavbar = ['/clerkdashboard'];
   // const hideNavbar = shouldHideNavbar.includes(location.pathname);
-  const isAdmin=true
+  const isAdmin=false
 
   return (
     <div>
@@ -48,9 +49,10 @@ const Layout = () => {
            <Route path="/subadmin/*" element={<SubAdminRouter />} />
            <Route path="/clerk/*" element={<ClerkRouter />} />
            <Route path="/hod/*" element={<HodRouter />} />
+           <Route path='/test-api' element={<TestAPI/>} />
            
          </Routes>
-         <Home/>
+      
          <Footer/>    
     </div>
   );
