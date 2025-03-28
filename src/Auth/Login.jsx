@@ -1,9 +1,38 @@
 
 
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
+  const[login,setLogin]=useState({})
+  const navigate=useNavigate()
+
+  const handleChange=(e)=>{
+  setLogin({...login,[e.target.name]:e.target.value})
+  console.log(login)
+
+  }
+const handleSubmit=(e)=>{
+  e.preventDefault()
+
+  axios.post('http://localhost:8000/api/login/',login).then((response)=>{
+    console.log(response)
+    const role=response.data.data.role
+    if(role=="admin"){
+      navigate('/admin/admindash')
+    }
+    else if(role=="student"){
+      navigate('/dashboard')
+    }
+  }).catch((error)=>{
+    console.log(error)
+  })
+
+
+}
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className="card p-4 shadow-lg border-0 rounded" style={{ width: "350px" }}>
@@ -17,9 +46,9 @@ const Login = () => {
         </div>
         <h4 className="text-center text-primary mb-3">Login</h4>
         <form>
-          <input type="email" className="form-control rounded-pill mb-2" placeholder="Email" />
-          <input type="password" className="form-control rounded-pill mb-3" placeholder="Password" />
-          <button className="btn btn-primary rounded-pill">Login</button>
+          <input type="username" className="form-control rounded-pill mb-2" placeholder="Username" name="username"  onChange={handleChange}/>
+          <input type="password" className="form-control rounded-pill mb-3" placeholder="Password" name="password" onChange={handleChange}/>
+          <button className="btn btn-primary rounded-pill" onClick={handleSubmit}>Login</button>
           <p className="text-center mt-2">
             Don't have an account? <a href="#" className="text-primary">Sign Up</a>
           </p>

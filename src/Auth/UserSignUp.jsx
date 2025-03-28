@@ -1,8 +1,34 @@
 
 import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
 
 const UserSignup = () => {
+  const[signup,setSignup]=useState({})
+  const navigate=useNavigate()
+
+  const handleChange=(e)=>{
+  setSignup({...signup,[e.target.name]:e.target.value})
+  console.log(signup)
+
+  }
+const handleSubmit=(e)=>{
+
+  e.preventDefault()
+
+  axios.post('http://localhost:8000/api/studentregister/',signup).then((response)=>{
+    console.log(response)
+    
+      navigate('/dashboard')
+    
+  }).catch((error)=>{
+    console.log(error)
+  })
+
+
+}
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className="card p-4 shadow-lg border-0 rounded" style={{ width: "350px" }}>
@@ -16,11 +42,11 @@ const UserSignup = () => {
         </div>
         <h4 className="text-center text-primary mb-3">User Sign Up</h4>
         <form>
-          <input type="text" className="form-control rounded-pill mb-2" placeholder="Full Name" />
-          <input type="email" className="form-control rounded-pill mb-2" placeholder="Email" />
-          <input type="password" className="form-control rounded-pill mb-2" placeholder="Password" />
-          <input type="password" className="form-control rounded-pill mb-3" placeholder="Confirm Password" />
-          <button className="btn btn-primary rounded-pill ">Sign Up</button>
+          <input type="text" className="form-control rounded-pill mb-2" placeholder="First Name" name="first_name"  onChange={handleChange}/>
+          <input type="text" className="form-control rounded-pill mb-2" placeholder="Last Name" name="last_name"  onChange={handleChange} />
+          <input type="email" className="form-control rounded-pill mb-2" placeholder="Email" name="email"  onChange={handleChange}/>
+          <input type="password" className="form-control rounded-pill mb-2" placeholder="Password" name="password"  onChange={handleChange}/>
+          <button className="btn btn-primary rounded-pill " onClick={handleSubmit}>Sign Up</button>
           <p className="text-center mt-2">
             Already have an account? <a href="Login" className="text-primary">Login</a>
           </p>
@@ -29,5 +55,6 @@ const UserSignup = () => {
     </div>
   );
 };
+
 
 export default UserSignup;

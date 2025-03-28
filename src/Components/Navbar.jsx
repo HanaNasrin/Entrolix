@@ -56,7 +56,7 @@ const Navbar = () => {
                 <li><a className="dropdown-item" href="HodSignup">HOD SignUp</a></li>
                 <li><a className="dropdown-item" href="SubAdminSignup">Subadmin SignUp</a></li>
                 <li><a className="dropdown-item" href="ClerkSignup">Clerk SignUp</a></li>
-                <li><a className="dropdown-item" href="UserSignUp">User SignUp</a></li>
+                <li><a className="dropdown-item" href="/UserSignUp">User SignUp</a></li>
               </ul>
             </li>
 

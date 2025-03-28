@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const SubAdminManageUsers = () => {
   const [users, setUsers] = useState([
-    { id: 1, name: "John Doe", email: "john@example.com", role: "Admin", isBlocked: false },
+    { id: 1, name: "John Doe", email: "john@example.com", role: " Sub Admin", isBlocked: false },
     { id: 2, name: "Jane Smith", email: "jane@example.com", role: "Sub Admin", isBlocked: false },
     { id: 3, name: "Bob Johnson", email: "bob@example.com", role: "Clerk", isBlocked: false },
   ]);
@@ -16,7 +16,7 @@ const SubAdminManageUsers = () => {
   return (
     <div className="container mt-4">
        
-      <h3 className="mb-3">Manage Users</h3>
+      <h3 className="mb-3">Manage Sub Users</h3>
       <table className="table table-bordered">
         <thead className="table-dark">
           <tr>

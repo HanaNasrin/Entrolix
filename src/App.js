@@ -48,7 +48,7 @@ const Layout = () => {
            <Route path="/admin/*" element={<AdminRouter />} />
            <Route path="/subadmin/*" element={<SubAdminRouter />} />
            <Route path="/clerk/*" element={<ClerkRouter />} />
-           <Route path="/hod/*" element={<HodRouter />} />
+           {/* <Route path="/hod/*" element={<HodRouter />} /> */}
            <Route path='/test-api' element={<TestAPI/>} />
            
          </Routes>

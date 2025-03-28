@@ -5,12 +5,14 @@ import SubAdminManageUsers from "./SubAdminManageUsers";
 
 const AdminRouter = () =>{
     return(
-
+    <>
+    {/* <AdminDashboard/> */}
     <Routes>
         <Route path="/admindash" element={<AdminDashboard/>} />
         <Route path="/manageuser" element={<SubAdminManageUsers />} />
         <Route path="/reports" element={<AdminReports/>} />
     </Routes>
+    </>
     );
 }
 
