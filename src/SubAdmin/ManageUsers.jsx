@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import AdminNavbar from "./AdminNavbar";
 
 const ManageUsers = () => {
   const [users, setUsers] = useState([
@@ -38,7 +37,7 @@ const ManageUsers = () => {
                 //   className={btn ${user.isBlocked ? "btn-success" : "btn-warning"}} 
                 //   onClick={() => handleToggleBlock(user.id)}
                 >
-                       block {/* {user.isBlocked ? "Unblock" : "Block"} */}
+                     {user.isBlocked ? "Unblock" : "Block"} 
                 </button>
               </td>
             </tr>

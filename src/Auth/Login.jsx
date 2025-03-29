@@ -27,7 +27,10 @@ const handleSubmit=(e)=>{
     else if(role=="student"){
       navigate('/dashboard')
     }
-  }).catch((error)=>{
+    else if(role=="subadmin"){
+      navigate('/subadmin/subadmindash')
+    }
+}).catch((error)=>{
     console.log(error)
   })
 

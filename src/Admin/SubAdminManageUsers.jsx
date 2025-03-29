@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SubAdminManageUsers = () => {
+  const navigate = useNavigate(); 
   const [users, setUsers] = useState([
     { id: 1, name: "John Doe", email: "john@example.com", role: " Sub Admin", isBlocked: false },
     { id: 2, name: "Jane Smith", email: "jane@example.com", role: "Sub Admin", isBlocked: false },
@@ -44,6 +46,9 @@ const SubAdminManageUsers = () => {
           ))}
         </tbody>
       </table>
+      <h3 className="mb-3 d-flex justify-content-between align-items-center">
+        <button className="btn btn-primary" onClick={() => navigate("/admin/addsubadmin")} > Add Sub Admin</button>
+      </h3>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaChartBar, FaCalendarAlt, FaComments, FaUser } from "react-icons/fa";
+import { FaChartBar, FaCalendarAlt, FaComments, FaUser, FaMoneyBillWave, FaBell } from "react-icons/fa";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 // Placeholder components for each section
@@ -40,23 +40,23 @@ const UserDashboard = () => {
           <h5 className="text-center mb-4">Menu</h5>
           <ul className="nav flex-column">
             <li className="nav-item mb-2">
-              <Link to="/upload-documents" className="nav-link text-white">
+              <Link to="/upload" className="nav-link text-white">
                 <FaCalendarAlt className="me-2" /> Upload Documents
               </Link>
             </li>
             <li className="nav-item mb-2">
               <Link to="/payment" className="nav-link text-white">
-                <FaChartBar className="me-2" /> Payment
+                <FaMoneyBillWave className="me-2" /> Payment Details
               </Link>
             </li>
             <li className="nav-item mb-2">
-              <Link to="/chat" className="nav-link text-white">
-                <FaComments className="me-2" /> Chat Support
+              <Link to="/useralerts" className="nav-link text-white">
+                <FaComments className="me-2" /> Chats
               </Link>
             </li>
             <li className="nav-item mb-2">
               <Link to="/alerts" className="nav-link text-white">
-                <FaComments className="me-2" /> Alerts & Analytics
+                <FaBell className="me-2" /> Notifications
               </Link>
             </li>
             <li className="nav-item mb-2">

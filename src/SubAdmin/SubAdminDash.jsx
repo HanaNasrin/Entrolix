@@ -18,11 +18,11 @@ const SubAdminDash = () => {
         <h5 className="text-center mb-4">Sub-Admin Panel</h5>
         <ul className="nav flex-column">
           <li className="nav-item mb-2">
-            <Link to="/subadmin/admissionschedule" className="nav-link text-white">
+            <Link to="/subadmin/schedule" className="nav-link text-white">
               <FaCalendarAlt className="me-2" /> Admission Schedule
             </Link>
           </li>
-          <li className="nav-item mb-2">
+          {/* <li className="nav-item mb-2">
             <Link to="/subadmin/addadmissionschedule" className="nav-link text-white">
               <FaEdit className="me-2" /> Add Admission Schedule
             </Link>
@@ -31,10 +31,10 @@ const SubAdminDash = () => {
             <Link to="/subadmin/editadmissionschedule" className="nav-link text-white">
               <FaEdit className="me-2" /> Edit Admission Schedule
             </Link>
-          </li>
+          </li> */}
           <li className="nav-item mb-2">
             <Link to="/subadmin/manageadmission" className="nav-link text-white">
-              <FaList className="me-2" /> Manage Admission
+              <FaList className="me-2" /> Manage Admissions
             </Link>
           </li>
           <li className="nav-item mb-2">
