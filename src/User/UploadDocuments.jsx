@@ -1,96 +1,60 @@
-// import React, { useState } from "react";
-// import "bootstrap/dist/css/bootstrap.min.css";
-
-// const UploadDocuments = () => {
-//   const [selectedOption, setSelectedOption] = useState("Merit"); // Default option
-//   const [files, setFiles] = useState([]);
-
-//   const handleOptionChange = (option) => {
-//     setSelectedOption(option);
-//     setFiles([]); // Clear files when switching options
-//   };
-
-//   const handleFileChange = (event) => {
-//     const newFiles = Array.from(event.target.files);
-//     setFiles((prevFiles) => [...prevFiles, ...newFiles]);
-//   };
-
-//   const handleRemoveFile = (index) => {
-//     setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
-//   };
-
-//   const handleSubmit = () => {
-//     alert(`Submitting ${selectedOption} documents: ${files.map((file) => file.name).join(", ")}`);
-//     // Add logic for actual submission here
-//   };
-
-//   return (
-//     <div className="container mt-4">
-//       <h4>Upload Documents</h4>
-//       <div className="mb-3">
-//         <h6>Select Category:</h6>
-//         <div className="btn-group">
-//           <button
-//             className={`btn btn-outline-primary ${selectedOption === "Merit" ? "active" : ""}`}
-//             onClick={() => handleOptionChange("Merit")}
-//           >
-//             Merit
-//           </button>
-//           <button
-//             className={`btn btn-outline-primary ${selectedOption === "NRI" ? "active" : ""}`}
-//             onClick={() => handleOptionChange("NRI")}
-//           >
-//             NRI
-//           </button>
-//         </div>
-//       </div>
-
-//       <div className="mb-3">
-//         <label htmlFor="fileInput" className="form-label">
-//           Upload {selectedOption} Documents:
-//         </label>
-//         <input
-//           type="file"
-//           className="form-control"
-//           id="fileInput"
-//           multiple
-//           onChange={handleFileChange}
-//         />
-//       </div>
-
-//       {files.length > 0 && (
-//         <div className="mb-3">
-//           <h6>Selected Files:</h6>
-//           <ul className="list-group">
-//             {files.map((file, index) => (
-//               <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
-//                 {file.name}
-//                 <button
-//                   className="btn btn-sm btn-danger"
-//                   onClick={() => handleRemoveFile(index)}
-//                 >
-//                   Remove
-//                 </button>
-//               </li>
-//             ))}
-//           </ul>
-//         </div>
-//       )}
-
-//       <button className="btn btn-success" onClick={handleSubmit} disabled={files.length === 0}>
-//         Submit {selectedOption} Documents
-//       </button>
-//     </div>
-//   );
-// };
-// export default UploadDocuments;
-
 import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
+import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const UserUpload = () => {
+  const [formData, setFormData] = useState({
+      course : "",
+      plus_two_certificate: null,
+      passport_size_photo: null,
+      income_certificate: null,
+      annual_income: "",
+      community_certificate: null,
+      nativity_certificate: null,
+      transfer_certificate: null,
+    });
   const [category, setCategory] = useState("merit"); // Default selection
   const courses = ["IT", "PT", "EC", "EEE", "ME", "EP"];
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, type, files, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === "file" ? files[0] : value,
+    });
+    console.log(formData)
+  };
+
+  const handleSubmit = async (e) => {
+    const Id=localStorage.getItem('Id')
+
+    e.preventDefault();
+    setLoading(true);
+
+
+    console.log("studentid"+Id)
+
+
+    const submissionData = new FormData();
+    submissionData.append('student', Id);
+    Object.keys(formData).forEach((key) => {
+      if (formData[key]) {
+        submissionData.append(key, formData[key]);
+      }
+    });
+    try {
+      const response = await axios.post("http://localhost:8000/api/upload-certificates/", submissionData)
+     console.log(response)
+      // alert("Application submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting application:", error);
+      // alert("Failed to submit application");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="container py-5">
@@ -118,78 +82,80 @@ const UserUpload = () => {
 
               {/* Merit Fields */}
               {category === "merit" && (
-                <form>
-                   <div className="mb-3">Select Your Admitted Course</div>
-                   {courses.map((course, index) => (
-          <div key={index} className="form-check">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="course"
-              id={`course-${index}`}
-            />
-            <label className="form-check-label" htmlFor={`course-${index}`}>
-              {course}
-            </label>
-          </div>
-        ))}
-                  <div className="mb-3">
-                    <label className="form-label">Copy of Admit Card, Allotment Memo, Candidate’s Data Sheet</label>
-                    <input type="file" className="form-control" />
+                <form onSubmit={handleSubmit}>
+                 <div className="mb-3">
+                    <label className="form-label">Select Your Admitted Course</label>
+                    <select
+                      className="form-select"
+                      name="course_name "
+                      onChange={handleChange}
+                      
+                    >
+                      <option value="" disabled>Select a course</option>
+                      {courses.map((course, index) => (
+                        <option key={index} value={course}>
+                          {course}
+                        </option>
+                      ))}
+                    </select>
                   </div>
-                  <div className="mb-3">
-                    <label className="form-label">Copy of Fee Receipt</label>
-                    <input type="file" className="form-control" />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">SSLC Certificate / Xth Mark List & Pass Certificate</label>
-                    <input type="file" className="form-control" />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">Plus Two/VHSC/THS/Diploma Certificate</label>
-                    <input type="file" className="form-control" />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">Passport Size Photo</label>
-                    <input type="file" className="form-control"/>
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">Income Certificate (For Reservation Category)</label>
-                    <input type="file" className="form-control" />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">Annual Income in rupees</label>
-                    <input
-                      type="number"
-                      className="form-control"
-                      // value={income}
-                      // onChange={handleIncomeChange}
-                      placeholder="Enter your income"
-                    />
-                  <div className="mb-3">
-                    <label className="form-label">Community Certificate (For Reservation Category)</label>
-                    <input type="file" className="form-control" />
-                  </div><div className="mb-3">
-                    <label className="form-label">Nativity Certificate (For Reservation Category)</label>
-                    <input type="file" className="form-control" />
-                  </div>
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">Transfer Certificate (Original)</label>
-                    <input type="file" className="form-control" />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">Conduct Certificate (Obtained within 6 months)</label>
-                    <input type="file" className="form-control" />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">Physical/Medical Fitness Certificate (As per CEE Format)</label>
-                    <input type="file" className="form-control" />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">Migration Certificate (Original)</label>
-                    <input type="file" className="form-control" />
-                  </div>
+
+                  <Form.Group controlId="">
+                            <Form.Label>Copy of Admit Card, Allotment Memo, Candidate’s Data Sheet</Form.Label>
+                            <Form.Control type="file" name="admit_card" onChange={handleChange} />
+                  </Form.Group>
+                  <Form.Group controlId="">
+                            <Form.Label>Copy of Fee Receipt</Form.Label>
+                            <Form.Control type="file" name="fee_reciept" onChange={handleChange} />
+                  </Form.Group>
+                
+                  <Form.Group controlId="">
+                            <Form.Label>SSLC Certificate / Xth Mark List & Pass Certificate</Form.Label>
+                            <Form.Control type="file" name="sslc_certificate" onChange={handleChange} />
+                  </Form.Group>
+                  <Form.Group controlId="plus_two_certificate">
+                            <Form.Label>Plus Two/VHSC/THS/Diploma Certificate</Form.Label>
+                            <Form.Control type="file" name="plus_two_certificate" onChange={handleChange} />
+                  </Form.Group>
+                  
+                  <Form.Group controlId="passport_size_photo">
+                            <Form.Label>Passport Size Photo</Form.Label>
+                            <Form.Control type="file" name="passport_size_photo" onChange={handleChange} />
+                  </Form.Group>
+                  
+                  <Form.Group controlId="income_certificate">
+                    <Form.Label>Income Certificate</Form.Label>
+                    <Form.Control type="file" name="income_certificate" onChange={handleChange} />
+                  </Form.Group>
+                  <Form.Group controlId="annual_income">
+                            <Form.Label>Annual Income</Form.Label>
+                            <Form.Control type="number" name="annual_income" value={formData.annual_income} onChange={handleChange} />
+                  </Form.Group>
+              
+                  <Form.Group controlId="">
+                            <Form.Label>Community Certificate (For Reservation Category)</Form.Label>
+                            <Form.Control type="file" name="community_certificate" onChange={handleChange} />
+                  </Form.Group>
+                  <Form.Group controlId="">
+                            <Form.Label>Nativity Certificate (For Reservation Category)</Form.Label>
+                            <Form.Control type="file" name="nativity_certificate" onChange={handleChange} />
+                  </Form.Group>
+                  <Form.Group controlId="">
+                            <Form.Label>Transfer Certificate (Original)</Form.Label>
+                            <Form.Control type="file" name="transfer_certificate" onChange={handleChange} />
+                  </Form.Group>
+                  <Form.Group controlId="">
+                            <Form.Label>Conduct Certificate (Obtained within 6 months)</Form.Label>
+                            <Form.Control type="file" name="conduct_certificate" onChange={handleChange} />
+                  </Form.Group>
+                  <Form.Group controlId="">
+                            <Form.Label>Physical/Medical Fitness Certificate (As per CEE Format)</Form.Label>
+                            <Form.Control type="file" name="physical_certificate" onChange={handleChange} />
+                  </Form.Group>
+                  <Form.Group controlId="">
+                            <Form.Label>Migration Certificate (Original)</Form.Label>
+                            <Form.Control type="file" name="migration_certificate" onChange={handleChange} />
+                  </Form.Group>
                   <button type="submit" className="btn btn-primary w-100">Submit</button>
                 </form>
               )}

@@ -20,6 +20,7 @@ const handleSubmit=(e)=>{
 
   axios.post('http://localhost:8000/api/studentregister/',signup).then((response)=>{
     console.log(response)
+    localStorage.setItem("Id",response.data.id)
     
       navigate('/dashboard')
     
@@ -41,7 +42,7 @@ const handleSubmit=(e)=>{
           />
         </div>
         <h4 className="text-center text-primary mb-3">User Sign Up</h4>
-        <form>
+        <form method="post">
           <input type="text" className="form-control rounded-pill mb-2" placeholder="First Name" name="first_name"  onChange={handleChange}/>
           <input type="text" className="form-control rounded-pill mb-2" placeholder="Last Name" name="last_name"  onChange={handleChange} />
           <input type="email" className="form-control rounded-pill mb-2" placeholder="Email" name="email"  onChange={handleChange}/>

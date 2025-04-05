@@ -2,20 +2,21 @@ import React from "react";
 
 const SubAdminReports = () => {
   // Dummy data
-  const totalStudents = 500;
+  const totalStudents = 600;
   const departments = [
     { name: "Computer Science", count: 150 },
     { name: "Mechanical", count: 120 },
     { name: "Electrical", count: 130 },
-    { name: "Civil", count: 100 },
+    { name: "Electronics", count: 100 },
+    { name: "printing", count: 60 },
+    { name: "computer and electronics", count: 40 },
   ];
-  const nriStudents = 70;
-  const meritStudents = 430;
+  const nriStudents = 80;
+  const meritStudents = 520;
 
   return (
     <div className="container mt-4">
-      {/* Page Title */}
-      <h2 className="mb-4">Subadmin Dashboard</h2>
+      
 
       {/* Cards Row */}
       <div className="row">
@@ -72,7 +73,7 @@ const SubAdminReports = () => {
           <hr />
           <div className="row">
             {departments.map((dept, index) => (
-              <div key={index} className="col-md-3 col-sm-6 mb-3">
+              <div key={index} className="col-md-4 col-sm-6 mb-3">
                 <div className="border p-3 text-center">
                   <h6 className="fw-semibold">{dept.name}</h6>
                   <p className="h4 fw-bold">{dept.count}</p>

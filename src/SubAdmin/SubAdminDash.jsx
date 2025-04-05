@@ -8,6 +8,7 @@ import {
   FaUsers,
   FaChartBar,
   FaList,
+  FaGift
 } from "react-icons/fa";
 
 const SubAdminDash = () => {
@@ -45,6 +46,11 @@ const SubAdminDash = () => {
           <li className="nav-item mb-2">
             <Link to="/subadmin/reports" className="nav-link text-white">
               <FaChartBar className="me-2" /> Reports
+            </Link>
+          </li>
+          <li className="nav-item mb-2">
+            <Link to="/subadmin/scholarships" className="nav-link text-white">
+              <FaGift className="me-2" /> Scholarships
             </Link>
           </li>
         </ul>

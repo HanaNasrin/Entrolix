@@ -6,17 +6,12 @@ import AdminNavbar from './Components/AdminNavbar';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from './pages/Home';
 import Login from './Auth/Login';
-import AdminLogin from './Auth/AdminLogin';
 import UserSignUp from './Auth/UserSignup';
-import HodSignup from './Auth/HodSignup';
-import ClerkSignup from './Auth/ClerkSignup';
-import SubAdminSignup from './Auth/SubAdminSignup';
 import UserRouter from './User/UserRouter';
 import AdminRouter from './Admin/AdminRouter';
 import SubAdminRouter from './SubAdmin/SubAdminRouter';
-import HodRouter from './HOD/HodRouter';
-import ClerkRouter from './Clerk/ClerkRouter';
 import TestAPI from './Clerk/Scholarships';
+import HodSignup from './Auth/HodSignup';
 
 function App() {
   return (
@@ -39,17 +34,14 @@ const Layout = () => {
             
            <Route path='/' element={<Home />} />
            <Route path="/login" element = { <Login/> } />
-           <Route path='/adminlogin' element={<AdminLogin />} />
            <Route path='/usersignup' element={<UserSignUp />} />
-           <Route path='/hodsignup' element={<HodSignup />} />
-           <Route path='/clerksignup' element={<ClerkSignup />} />
-           <Route path='/subadminsignup' element={<SubAdminSignup />} />
            <Route path="/*" element={<UserRouter />} />
            <Route path="/admin/*" element={<AdminRouter />} />
            <Route path="/subadmin/*" element={<SubAdminRouter />} />
-           <Route path="/clerk/*" element={<ClerkRouter />} />
            <Route path='/test-api' element={<TestAPI/>} />
-           
+
+           <Route path="/dummy/" element={<HodSignup />} />
+
          </Routes>
       
          <Footer/>    

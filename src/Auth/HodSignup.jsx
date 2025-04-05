@@ -1,42 +1,130 @@
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+// import { Table } from 'react-bootstrap'; // Import Table from react-bootstrap
 
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+// const Subadmindash = () => {
+//   const [applications, setApplication] = useState([]);
+//   const [apr, setap] = useState(false);
 
-const HodSignup = () => {
-  return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      <div className="card p-4 shadow-lg border-0 rounded" style={{ width: "350px" }}>
-        <div className="text-center mb-3">
-          <img
-            src="https://i.pinimg.com/474x/7a/6c/e8/7a6ce8bca4bf64faa0bf3990eba2c6cb.jpg"
-            alt="Signup"
-            className="img-fluid rounded-circle"
-            style={{ width: "100px", height: "100px" }}
-          />
-        </div>
-        <h4 className="text-center text-primary mb-3">Head of Dept Account</h4>
-        <form>
-          <input type="text" className="form-control rounded-pill mb-2" placeholder="Full Name" />
-          <input type="email" className="form-control rounded-pill mb-2" placeholder="Email" />
-          <input type="password" className="form-control rounded-pill mb-2" placeholder="Password" />
-          <input type="password" className="form-control rounded-pill mb-2" placeholder="Confirm Password" />
-          <select className="form-select  rounded-pill mb-3">
-            <option value="">Select Department</option>
-            <option value="CS">Computer Science and Engineering</option>
-            <option value="ECE">Electronics and Communication Engineering</option>
-            <option value="EP">Electronics and Computer Science Engineering</option>
-            <option value="EEE">Electrical and Electronics Engineering</option>
-            <option value="ME">Mechanical Engineering</option>
-            <option value="PT">Printing Technology</option>
-          </select>
-          <button className="btn btn-primary rounded-pill">Sign Up</button>
-          <p className="text-center mt-2">
-            Already have an account? <a href="Login" className="text-primary">Login</a>
-          </p>
-        </form>
-      </div>
-    </div>
-  );
-};
 
-export default HodSignup;
+//   useEffect(() => {
+//     axios
+//       .get('http://localhost:8000/api/upload-certificates/')
+//       .then((response) => {
+//         console.log(response);
+//         setApplication(response.data);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   }, []);
+
+
+//   const approveapplication=(id)=>{
+//     const Id=id
+//     // console.log(Id)
+//     axios
+//     .patch(http://localhost:8000/api/upload-certificates/${Id}/)
+//     .then((response) => {
+//       console.log(response);
+//       setap(!apr)
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+//   }
+
+//   const removeapplication=(id)=>{
+//     const Id=id
+//     console.log(Id)
+//     axios
+//     .delete(http://localhost:8000/api/upload-certificates/${Id}/)
+//     .then((response) => {
+//       console.log(response);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+//   }
+
+
+//   return (
+    // <div className="container my-5">
+    //   <h1>Student Applications</h1>
+    //   <Table striped bordered hover responsive>
+    //     <thead>
+    //       <tr>
+    //         <th>Student Name</th>
+    //         <th>Plus Two Certificate</th>
+    //         <th>Passport Size Photo</th>
+    //         <th>Annual Income</th>
+    //         <th>Community Certificate</th>
+    //         <th>Nativity Certificate</th>
+    //         <th>Transfer Certificate</th>
+    //       </tr>
+    //     </thead>
+    //     <tbody>
+    //       {applications.map((application) => (
+    //         <tr key={application.id}>
+    //           <td>{application.student_name}</td>
+    //           <td>
+    //             {application.plus_two_certificate ? (
+    //               <a  href={http://localhost:8000${application.plus_two_certificate}} target="_blank" rel="noopener noreferrer">
+    //                 View Certificate
+    //               </a>
+    //             ) : (
+    //               'N/A'
+    //             )}
+    //           </td>
+    //           <td>
+    //             {application.passport_size_photo ? (
+    //               <a href={application.passport_size_photo} target="_blank" rel="noopener noreferrer">
+    //                 View Photo
+    //               </a>
+    //             ) : (
+    //               'N/A'
+    //             )}
+    //           </td>
+    //           <td>{application.annual_income}</td>
+    //           <td>
+    //             {application.community_certificate ? (
+    //               <a href={application.community_certificate} target="_blank" rel="noopener noreferrer">
+    //                 View Certificate
+    //               </a>
+    //             ) : (
+    //               'N/A'
+    //             )}
+    //           </td>
+    //           <td>
+    //             {application.nativity_certificate ? (
+    //               <a href={application.nativity_certificate} target="_blank" rel="noopener noreferrer">
+    //                 View Certificate
+    //               </a>
+    //             ) : (
+    //               'N/A'
+    //             )}
+    //           </td>
+    //           <td>
+    //             {application.transfer_certificate ? (
+    //               <a href={application.transfer_certificate} target="_blank" rel="noopener noreferrer">
+    //                 View Certificate
+    //               </a>
+    //             ) : (
+    //               'N/A'
+    //             )}
+    //           </td>
+    //           <td>
+    //           <button onClick={()=>approveapplication(application.id)} value={setap ? "Approved":"approve"}></button>
+    //           </td>
+    //           <td>
+    //           <button onClick={()=>removeapplication(application.id)}>Remove</button>
+    //           </td>
+    //         </tr>
+    //       ))}
+    //     </tbody>
+    //   </Table>
+    // </div>
+//   );
+// };
+
+// export default Subadmindash;

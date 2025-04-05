@@ -21,6 +21,7 @@ const handleSubmit=(e)=>{
   axios.post('http://localhost:8000/api/login/',login).then((response)=>{
     console.log(response)
     const role=response.data.data.role
+    localStorage.setItem('Id',response.data.data.id)
     if(role=="admin"){
       navigate('/admin/admindash')
     }
@@ -53,7 +54,7 @@ const handleSubmit=(e)=>{
           <input type="password" className="form-control rounded-pill mb-3" placeholder="Password" name="password" onChange={handleChange}/>
           <button className="btn btn-primary rounded-pill" onClick={handleSubmit}>Login</button>
           <p className="text-center mt-2">
-            Don't have an account? <a href="#" className="text-primary">Sign Up</a>
+            Don't have an account? <a href="usersignup" className="text-primary">Sign Up</a>
           </p>
         </form>
       </div>
