@@ -11,13 +11,14 @@ const SubAdminRouter = () =>{
 
     return(
     <Routes>
-                <Route path="/subadmindash" element={<SubAdminDash/>} />
+            <Route path="/" element={<SubAdminDash/>} >
+                <Route path="/schedule" element={<AdmissionSchedule />} />
                 <Route path="/add" element={<AddAdmissionSchedule/>} />
                 <Route path="/edit" element={<EditAdmissionSchedule />} />
-                <Route path="/schedule" element={<AdmissionSchedule />} />
                 <Route path="/manageadmission" element={<ManageAdmission />} />
                 <Route path="/manageusers" element={<ManageUsers />} />
                 <Route path="/reports" element={<SubAdminReports />} />
+            </Route>
     </Routes>
     );
 }

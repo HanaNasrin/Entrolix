@@ -22,7 +22,7 @@ const handleSubmit=(e)=>{
     console.log(response)
     localStorage.setItem("Id",response.data.id)
     
-      navigate('/dashboard')
+      navigate('/dashboard/upload')
     
   }).catch((error)=>{
     console.log(error)

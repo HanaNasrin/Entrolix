@@ -1,116 +1,104 @@
-import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Bar, Pie } from "react-chartjs-2";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Pie } from "react-chartjs-2";
 import {
   Chart as ChartJS,
-  BarElement,
-  CategoryScale,
-  LinearScale,
+  ArcElement,
   Tooltip,
   Legend,
-  ArcElement,
 } from "chart.js";
 
-ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend, ArcElement);
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const UserAlerts = () => {
-  const [alerts, setAlerts] = useState([
-    { id: 1, type: "Application Deadline", message: "Submit your application by March 15th, 2025." },
-    { id: 2, type: "Missing Documents", message: "Upload your NRI certificate by March 10th, 2025." },
-    { id: 3, type: "Payment Update", message: "Your payment is successfully received." },
-  ]);
+  const uploadedDocuments = 7;
+  const totalDocuments = 10;
+  const [notifications, setNotifications] = useState([]);
 
-  const barChartData = {
-    labels: ["Applications Submitted", "Applications Approved", "Applications Pending"],
-    datasets: [
-      {
-        label: "Application Status",
-        data: [120, 85, 35], // Example data
-        backgroundColor: ["#4caf50", "#2196f3", "#ff9800"],
-      },
-    ],
+  useEffect(() => {
+    fetchNotifications();
+  }, []);
+
+  const fetchNotifications = () => {
+    axios
+      .get("http://localhost:8000/api/notifications/")
+      .then((response) => {
+        console.log(response)
+        setNotifications(response.data);
+      })
+      .catch((error) => {
+        console.error("Failed to fetch notifications:", error);
+      });
   };
 
-  const pieChartData = {
-    labels: ["Merit Applications", "NRI Applications"],
+  const pieData = {
+    labels: ["Uploaded", "Remaining"],
     datasets: [
       {
-        label: "Application Categories",
-        data: [80, 20], // Example data
-        backgroundColor: ["#4caf50", "#ff9800"],
-      },
-    ],
-  };
-
-  const departmentData = {
-    labels: ["CSE", "ECE", "EEE", "ME", "CEC","PT"],
-    datasets: [
-      {
-        label: "Merit",
-        data: [30, 20, 15, 25, 10,14],
-        backgroundColor: "#4caf50",
-      },
-      {
-        label: "NRI",
-        data: [5, 10, 8, 12, 6,10],
-        backgroundColor: "#ff9800",
+        data: [uploadedDocuments, totalDocuments - uploadedDocuments],
+        backgroundColor: ["#198754", "#e63946"],
+        borderWidth: 1,
       },
     ],
   };
 
   return (
-    <div className="container mt-4">
-      <h4>Alerts and Analytics</h4>
-
-      {/* Alerts Section */}
-      <div className="mb-4">
-        <h5>Alerts</h5>
-        {alerts.length === 0 ? (
-          <p className="text-muted">No alerts available.</p>
-        ) : (
-          <ul className="list-group">
-            {alerts.map((alert) => (
-              <li key={alert.id} className="list-group-item d-flex justify-content-between align-items-center">
-                <div>
-                  <strong>{alert.type}: </strong>
-                  {alert.message}
-                </div>
-                <button
-                  className="btn btn-sm btn-danger"
-                  onClick={() => setAlerts(alerts.filter((a) => a.id !== alert.id))}
+    <div className="container py-4">
+      <div className="row g-4 d-flex flex-column flex-md-row">
+        
+        {/* Notifications on the Left */}
+        <div className="col-md-8">
+          <h4 className="mb-3">📢 Notifications</h4>
+          {notifications.length > 0 ? (
+            notifications.map((notif) => (
+              <div
+                key={notif.id}
+                className="d-flex justify-content-between align-items-center p-3 mb-2 border rounded shadow-sm"
+                style={{ background: "#f8f9fa" }}
+              >
+                <span>{notif.message}</span>
+                <span
+                  className={`badge ${
+                    notif.status === "Enrolled"
+                      ? "bg-success"
+                      : notif.status === "Pending"
+                      ? "bg-warning text-dark"
+                      : "bg-danger"
+                  }`}
                 >
-                  Dismiss
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      {/* Analytics Section */}
-      <div className="row">
-        <div className="col-md-6">
-          <h5>Application Status</h5>
-          <Bar data={barChartData} options={{ responsive: true, plugins: { legend: { display: false } } }} />
+                  {notif.status}
+                </span>
+              </div>
+            ))
+          ) : (
+            <p className="text-muted">No new notifications.</p>
+          )}
         </div>
-        <div className="col-md-6">
-          <h5>Application Categories</h5>
-          <Pie data={pieChartData} options={{ responsive: true, plugins: { legend: { position: "bottom" } } }} />
-        </div>
-      </div>
 
-      {/* Department Data */}
-      <div className="mt-4">
-        <h5>Department-Wise Applications</h5>
-        <Bar
-          data={departmentData}
-          options={{
-            responsive: true,
-            plugins: {
-              legend: { position: "top" },
-            },
-          }}
-        />
+        {/* Pie Chart on the Right */}
+        <div className="col-md-4 d-flex justify-content-center align-items-start">
+          <div style={{ width: "100%", maxWidth: "250px" }}>
+            <Pie
+              data={pieData}
+              options={{
+                responsive: true,
+                plugins: {
+                  legend: {
+                    position: "bottom",
+                    labels: {
+                      boxWidth: 15,
+                      font: { size: 12 },
+                    },
+                  },
+                },
+              }}
+            />
+            <p className="text-center mt-2">
+              <strong>{uploadedDocuments}</strong> of {totalDocuments} documents uploaded
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

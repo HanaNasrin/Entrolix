@@ -25,7 +25,7 @@ const Layout = () => {
   const location = useLocation();
   const shouldHideNavbar = ['/clerkdashboard'];
   // const hideNavbar = shouldHideNavbar.includes(location.pathname);
-  const isAdmin=false
+  const isAdmin=true
 
   return (
     <div>
@@ -44,7 +44,7 @@ const Layout = () => {
 
          </Routes>
       
-         <Footer/>    
+         {isAdmin?null:<Footer/>}       
     </div>
   );
 };

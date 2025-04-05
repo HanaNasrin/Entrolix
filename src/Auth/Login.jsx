@@ -23,13 +23,13 @@ const handleSubmit=(e)=>{
     const role=response.data.data.role
     localStorage.setItem('Id',response.data.data.id)
     if(role=="admin"){
-      navigate('/admin/admindash')
+      navigate('/admin/manageuser')
     }
     else if(role=="student"){
-      navigate('/dashboard')
+      navigate('/dashboard/upload')
     }
     else if(role=="subadmin"){
-      navigate('/subadmin/subadmindash')
+      navigate('/subadmin/manageadmission')
     }
 }).catch((error)=>{
     console.log(error)
