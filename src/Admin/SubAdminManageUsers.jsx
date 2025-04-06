@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SubAdminManageUsers = () => {
   const navigate = useNavigate(); 
@@ -9,11 +10,14 @@ const SubAdminManageUsers = () => {
     { id: 3, name: "Bob Johnson", email: "bob@example.com", role: "Clerk", isBlocked: false },
   ]);
 
-//   const handleToggleBlock = (id) => {
-//     setUsers(users.map(user => 
-//       user.id === id ? { ...user, isBlocked: !user.isBlocked } : user
-//     ));
-//   };
+  useEffect(() => {
+  const response=  axios
+      .get('http://localhost:8000/api/subadminregister/')
+      .then((response) => {
+        console.log(response)}).catch((error)=>{
+          console.log(error)
+        })
+      },[])
 
   return (
     <div className="container mt-4">

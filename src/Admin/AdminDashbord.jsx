@@ -18,7 +18,7 @@ const AdminDashboard = () => {
               </Link>
             </li>
             <li className="nav-item mb-2">
-              <a href="#" className="nav-link text-white">
+              <a href="/admin/students" className="nav-link text-white">
                 <FaClipboardList className="me-2" />  Students
               </a>
             </li>

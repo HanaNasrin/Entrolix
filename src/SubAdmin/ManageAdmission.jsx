@@ -525,7 +525,7 @@ const ManageAdmissions = () => {
     axios
       .delete(`http://localhost:8000/api/upload-certificates/${id}/`)
       .then((response) => {
-        console.log(response.data)
+        console.log(response)
         setAdmissions((prev) => prev.filter((admission) => admission.id !== id));
       })
       .catch((error) => {

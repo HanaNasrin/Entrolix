@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const ManageDepartmentUsers = () => {
+const ViewStudents = () => {
   const [departments, setDepartments] = useState({});
 
   useEffect(() => {
@@ -10,6 +10,7 @@ const ManageDepartmentUsers = () => {
       .get("http://localhost:8000/api/upload-certificates/")
       .then((response) => {
         // Group students by course_name (department)
+        console.log(response)
         const grouped = response.data.reduce((acc, curr) => {
           const dept = curr.course_name || "Unknown";
           if (!acc[dept]) acc[dept] = [];
@@ -25,7 +26,7 @@ const ManageDepartmentUsers = () => {
 
   return (
     <div className="container mt-4">
-      <h2 className="mb-4">Manage Students</h2>
+      <h2 className="mb-4">List of Students</h2>
 
       {["IT", "EC","ME","PT","EEE","EP"].map((dept) => (
         departments[dept] ? (
@@ -55,4 +56,4 @@ const ManageDepartmentUsers = () => {
     </div>
   );
 };
-export default ManageDepartmentUsers;
+export default ViewStudents;
