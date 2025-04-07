@@ -1,56 +1,55 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const SubAdminManageUsers = () => {
   const navigate = useNavigate(); 
-  const [users, setUsers] = useState([
-    { id: 1, name: "John Doe", email: "john@example.com", role: " Sub Admin", isBlocked: false },
-    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "Sub Admin", isBlocked: false },
-    { id: 3, name: "Bob Johnson", email: "bob@example.com", role: "Clerk", isBlocked: false },
-  ]);
+  const [subadmin, setSubadmin] = useState([]);
 
   useEffect(() => {
-  const response=  axios
+    axios
       .get('http://localhost:8000/api/subadminregister/')
       .then((response) => {
-        console.log(response)}).catch((error)=>{
-          console.log(error)
-        })
-      },[])
+        console.log("Fetched sub-admins:", response.data);
+        setSubadmin(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching sub-admins:", error);
+      });
+  }, []);
 
   return (
     <div className="container mt-4">
-       
       <h3 className="mb-3">Manage Sub Users</h3>
       <table className="table table-bordered">
         <thead className="table-dark">
           <tr>
             <th>Name</th>
             <th>Email</th>
+            <th>Phone Number</th> {/* Added phone number column */}
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {subadmin.map((user) => (
             <tr key={user.id}>
-              <td>{user.name}</td>
+              <td>{user.username}</td>
               <td>{user.email}</td>
+              <td>{user.phone_number}</td> {/* Displaying phone number */}
               <td>
-                <button 
-                //   className={btn ${user.isBlocked ? "btn-success" : "btn-warning"}} 
-                //   onClick={() => handleToggleBlock(user.id)}
-                >blc
-                  {/* {user.isBlocked ? "Unblock" : "Block"} */}
+                <button className="btn btn-warning">
+                  Block
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <h3 className="mb-3 d-flex justify-content-between align-items-center">
-        <button className="btn btn-primary" onClick={() => navigate("/admin/addsubadmin")} > Add Sub Admin</button>
-      </h3>
+      <div className="d-flex justify-content-end">
+        <button className="btn btn-primary" onClick={() => navigate("/admin/addsubadmin")}>
+          Add Sub Admin
+        </button>
+      </div>
     </div>
   );
 };
