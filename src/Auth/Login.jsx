@@ -50,7 +50,7 @@ const handleSubmit=(e)=>{
         </div>
         <h4 className="text-center text-primary mb-3">Login</h4>
         <form>
-          <input type="username" className="form-control rounded-pill mb-2" placeholder="Username" name="username"  onChange={handleChange}/>
+          <input type="username" className="form-control rounded-pill mb-2" placeholder="Username/Email" name="username"  onChange={handleChange}/>
           <input type="password" className="form-control rounded-pill mb-3" placeholder="Password" name="password" onChange={handleChange}/>
           <button className="btn btn-primary rounded-pill" onClick={handleSubmit}>Login</button>
           <p className="text-center mt-2">

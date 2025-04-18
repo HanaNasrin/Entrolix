@@ -36,7 +36,7 @@ const Home = () => {
                   <div className="card-body">
                     <h5 className="card-title">{program.title}</h5>
                     <p className="card-text">{program.seats} seats</p>
-                    <a href="#" className="btn rounded-pill" style={{ backgroundColor: "rgb(175, 170, 166)", color: "rgb(12, 11, 11)" }}>
+                    <a href="usersignup" className="btn rounded-pill" style={{ backgroundColor: "rgb(175, 170, 166)", color: "rgb(12, 11, 11)" }}>
                       Take Admission
                     </a>
                   </div>

@@ -21,7 +21,7 @@ const handleSubmit=(e)=>{
   axios.post('http://localhost:8000/api/studentregister/',signup).then((response)=>{
     console.log(response)
     localStorage.setItem("Id",response.data.id)
-    
+      alert("Student successfully added")
       navigate('/dashboard/upload')
     
   }).catch((error)=>{

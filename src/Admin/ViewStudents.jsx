@@ -9,14 +9,15 @@ const ViewStudents = () => {
     axios
       .get("http://localhost:8000/api/upload-certificates/")
       .then((response) => {
+        console.log(response.data)
         // Group students by course_name (department)
-        console.log(response)
         const grouped = response.data.reduce((acc, curr) => {
           const dept = curr.course_name || "Unknown";
           if (!acc[dept]) acc[dept] = [];
           acc[dept].push(curr);
           return acc;
         }, {});
+        console.log("object")
         setDepartments(grouped);
       })
       .catch((error) => {

@@ -5,14 +5,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const UserUpload = () => {
   const [formData, setFormData] = useState({
-      course : "",
-      plus_two_certificate: null,
-      passport_size_photo: null,
-      income_certificate: null,
-      annual_income: "",
-      community_certificate: null,
-      nativity_certificate: null,
-      transfer_certificate: null,
+    course_name: "",
+    admit_card: null,
+    fee_reciept: null,
+    sslc_certificate: null,
+    plus_two_certificate: null,
+    passport_size_photo: null,
+    income_certificate: null,
+    annual_income: "",
+    community_certificate: null,
+    nativity_certificate: null,
+    transfer_certificate: null,
+    conduct_certificate: null,
+    physical_certificate: null,
+    migration_certificate: null,
     });
   const [category, setCategory] = useState("merit"); // Default selection
   const courses = ["IT", "PT", "EC", "EEE", "ME", "EP"];
@@ -39,6 +45,8 @@ const UserUpload = () => {
 
     const submissionData = new FormData();
     submissionData.append('student', Id);
+    submissionData.append('type', category);
+
     Object.keys(formData).forEach((key) => {
       if (formData[key]) {
         submissionData.append(key, formData[key]);
@@ -47,10 +55,10 @@ const UserUpload = () => {
     try {
       const response = await axios.post("http://localhost:8000/api/upload-certificates/", submissionData)
      console.log(response)
-      // alert("Application submitted successfully!");
+     alert("Application submitted successfully!");
     } catch (error) {
       console.error("Error submitting application:", error);
-      // alert("Failed to submit application");
+      alert("Failed to submit application");
     } finally {
       setLoading(false);
     }
@@ -87,7 +95,7 @@ const UserUpload = () => {
                     <label className="form-label">Select Your Admitted Course</label>
                     <select
                       className="form-select"
-                      name="course_name "
+                      name="course_name"
                       onChange={handleChange}
                       
                     >
@@ -156,13 +164,16 @@ const UserUpload = () => {
                             <Form.Label>Migration Certificate (Original)</Form.Label>
                             <Form.Control type="file" name="migration_certificate" onChange={handleChange} />
                   </Form.Group>
-                  <button type="submit" className="btn btn-primary w-100">Submit</button>
+                  <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+                                {loading ? "Submitting..." : "Submit"}
+                  </button>
+
                 </form>
               )}
 
               {/* NRI Fields */}
               {category === "nri" && (
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div className="mb-3">Select Your Admitted Course</div>
                    {courses.map((course, index) => (
           <div key={index} className="form-check">
@@ -179,15 +190,15 @@ const UserUpload = () => {
         ))}
                   <div className="mb-3">
                     <label className="form-label">Passport Size Photo</label>
-                    <input type="file" className="form-control" />
+                    <input type="file"  name="passport_size_photo" className="form-control" onChange={handleChange} />
                   </div>
                   <div className="mb-3">
                     <label className="form-label">SSLC Certificate / Xth Mark List & Pass Certificate</label>
-                    <input type="file" className="form-control" />
+                    <input type="file" name="sslc_certificate" className="form-control" onChange={handleChange} />
                   </div>
                   <div className="mb-3">
                     <label className="form-label">Plus Two/VHSC/THS/Diploma Certificate</label>
-                    <input type="file" className="form-control" />
+                    <input type="file" name="plus_two_certificate" className="form-control"  onChange={handleChange}/>
                   </div>
                   <div className="mb-3">
                     <label className="form-label">Copy of Fee Receipt</label>
