@@ -38,7 +38,7 @@ const SubAdminManageUsers = () => {
               <td>{user.phone_number}</td> {/* Displaying phone number */}
               <td>
                 <button className="btn btn-warning">
-                  Block
+                  Delete
                 </button>
               </td>
             </tr>

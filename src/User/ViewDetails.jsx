@@ -107,7 +107,7 @@ const UserReports = () => {
       .then((res) => {
         const data = res.data;
         setTotalStudents(data.total_students || 0);
-        setPendingAdmissions(data.total_applications || 0);
+        setPendingAdmissions(data.pending_students || 0);
         setTotalDepartments(data.department_counts ? Object.keys(data.department_counts).length : 0);
         setStudentsPerDept(
           Object.entries(data.department_counts || {}).map(([name, count]) => ({

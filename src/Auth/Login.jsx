@@ -1,12 +1,14 @@
-
-
+import { ToastContainer,toast } from 'react-bootstrap';
+import 'react-toastify/dist/ReactToastify.css';
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 
+
 const Login = () => {
+  // const notifySuccess = () => toast.success('Success! 🎉');
   const[login,setLogin]=useState({})
   const navigate=useNavigate()
 
@@ -22,6 +24,9 @@ const handleSubmit=(e)=>{
     console.log(response)
     const role=response.data.data.role
     localStorage.setItem('Id',response.data.data.id)
+    localStorage.setItem('studentId',response.data.data.studentId)
+
+
     if(role=="admin"){
       navigate('/admin/manageuser')
     }

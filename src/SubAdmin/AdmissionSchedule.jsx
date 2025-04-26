@@ -1,37 +1,28 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const EditableAdmissionSchedule = () => {
-  const [schedule, setSchedule] = useState([
-    { id: 1, department: 'Computer Science', date: '2025-06-01', time: '10:00 AM' },
-    { id: 2, department: 'Mechanical', date: '2025-06-02', time: '09:30 AM' },
-    { id: 3, department: 'Printing Technology', date: '2025-06-04', time: '10:00 AM' },
-    { id: 4, department: 'Electronics and Computer', date: '2025-06-07', time: '10:00 AM' },
-    { id: 5, department: 'Electrical and Electronics', date: '2025-06-08', time: '10:00 AM' },
-    { id: 6, department: 'Electronics', date: '2025-06-09', time: '10:00 AM' }
-  ]);
+const AdmissionSchedule = () => {
+  const navigate = useNavigate();
+  const [schedule, setSchedule] = useState([]);
 
-  const [editing, setEditing] = useState(false);
-  const [editedSchedule, setEditedSchedule] = useState([]);
-
-  const handleEditClick = () => {
-    setEditing(true);
-    setEditedSchedule(schedule);
-  };
-
-  const handleChange = (e, id) => {
-    const { name, value } = e.target;
-    setEditedSchedule(editedSchedule.map(item => item.id === id ? { ...item, [name]: value } : item));
-  };
-
-  const handleSaveClick = () => {
-    setSchedule(editedSchedule);
-    setEditing(false);
-  };
+  useEffect(() => {
+    // Fetch the admission schedule from the backend using axios
+    axios.get("http://localhost:8000/api/admission-schedule/")
+      .then(response => {
+        console.log(response.data);
+        setSchedule(response.data); // Update state with fetched data
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
 
   const handlePublishClick = () => {
     alert("Admission schedule has been published to the home page.");
-    // Here you could send the data to your backend to reflect on homepage
+    // You can integrate backend call here
   };
 
   return (
@@ -39,14 +30,12 @@ const EditableAdmissionSchedule = () => {
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h3 className="mb-0">Admission Schedule</h3>
         <div className="d-flex gap-2">
-          {!editing ? (
-            <>
-              <button className="btn btn-primary" onClick={handleEditClick}>Edit All</button>
-              <button className="btn btn-warning" onClick={handlePublishClick}>Publish to Homepage</button>
-            </>
-          ) : (
-            <button className="btn btn-success" onClick={handleSaveClick}>Save All</button>
-          )}
+          <button className="btn btn-primary" onClick={() => navigate("/subadmin/form")}>
+            Edit All
+          </button>
+          <button className="btn btn-warning" onClick={handlePublishClick}>
+            Publish to Homepage
+          </button>
         </div>
       </div>
       <table className="table table-bordered">
@@ -58,35 +47,11 @@ const EditableAdmissionSchedule = () => {
           </tr>
         </thead>
         <tbody>
-          {(editing ? editedSchedule : schedule).map((item) => (
-            <tr key={item.id}>
-              <td>{item.department}</td>
-              <td>
-                {editing ? (
-                  <input
-                    type="date"
-                    name="date"
-                    value={item.date}
-                    onChange={(e) => handleChange(e, item.id)}
-                    className="form-control"
-                  />
-                ) : (
-                  item.date
-                )}
-              </td>
-              <td>
-                {editing ? (
-                  <input
-                    type="time"
-                    name="time"
-                    value={item.time}
-                    onChange={(e) => handleChange(e, item.id)}
-                    className="form-control"
-                  />
-                ) : (
-                  item.time
-                )}
-              </td>
+          {schedule.map((item, index) => (
+            <tr key={index}>
+              <td>{item.department_display}</td>
+              <td>{item.date_of_joining}</td>
+              <td>{item.time_of_joining}</td>
             </tr>
           ))}
         </tbody>
@@ -95,4 +60,4 @@ const EditableAdmissionSchedule = () => {
   );
 };
 
-export default EditableAdmissionSchedule;
+export default AdmissionSchedule;

@@ -34,17 +34,17 @@ const UserUpload = () => {
   };
 
   const handleSubmit = async (e) => {
-    const Id=localStorage.getItem('Id')
+    const studentId=localStorage.getItem('studentId')
 
     e.preventDefault();
     setLoading(true);
 
 
-    console.log("studentid"+Id)
+    // console.log("studentid"+Id)
 
 
     const submissionData = new FormData();
-    submissionData.append('student', Id);
+    submissionData.append('student', studentId);
     submissionData.append('type', category);
 
     Object.keys(formData).forEach((key) => {
@@ -92,20 +92,24 @@ const UserUpload = () => {
               {category === "merit" && (
                 <form onSubmit={handleSubmit}>
                  <div className="mb-3">
-                    <label className="form-label">Select Your Admitted Course</label>
+                    <label className="form-label">Select Your Admitted Course<span style={{ color: "red" }}>*</span></label>
                     <select
                       className="form-select"
                       name="course_name"
+                      value={formData.course_name} // This ensures controlled behavior
                       onChange={handleChange}
-                      
+                      required
                     >
-                      <option value="" disabled>Select a course</option>
+                      <option value="" disabled hidden>
+                        ---Select a course---
+                      </option>
                       {courses.map((course, index) => (
                         <option key={index} value={course}>
                           {course}
                         </option>
                       ))}
                     </select>
+
                   </div>
 
                   <Form.Group controlId="">
@@ -174,20 +178,23 @@ const UserUpload = () => {
               {/* NRI Fields */}
               {category === "nri" && (
                 <form onSubmit={handleSubmit}>
-                  <div className="mb-3">Select Your Admitted Course</div>
-                   {courses.map((course, index) => (
-          <div key={index} className="form-check">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="course"
-              id={`course-${index}`}
-            />
-            <label className="form-check-label" htmlFor={`course-${index}`}>
-              {course}
-            </label>
-          </div>
-        ))}
+                  <label className="form-label">Select Your Admitted Course<span style={{ color: "red" }}>*</span></label>
+                  <select
+                      className="form-select"
+                      name="course_name"
+                      value={formData.course_name} // This ensures controlled behavior
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="" disabled hidden>
+                        ---Select a course---
+                      </option>
+                      {courses.map((course, index) => (
+                        <option key={index} value={course}>
+                          {course}
+                        </option>
+                      ))}
+                    </select>
                   <div className="mb-3">
                     <label className="form-label">Passport Size Photo</label>
                     <input type="file"  name="passport_size_photo" className="form-control" onChange={handleChange} />

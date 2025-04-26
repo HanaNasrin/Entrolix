@@ -7,7 +7,7 @@ const ViewStudents = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/upload-certificates/")
+      .get("http://localhost:8000/api/email/")
       .then((response) => {
         console.log(response.data)
         // Group students by course_name (department)
@@ -44,7 +44,7 @@ const ViewStudents = () => {
                 <tbody>
                   {departments[dept].map((user) => (
                     <tr key={user.id}>
-                      <td>{user.student_name}</td>
+                      <td>{user.name}</td>
                       <td>{user.email}</td>
                     </tr>
                   ))}

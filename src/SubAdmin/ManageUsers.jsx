@@ -7,8 +7,9 @@ const ManageDepartmentUsers = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/upload-certificates/")
+      .get("http://localhost:8000/api/email/")
       .then((response) => {
+        console.log(response)
         // Group students by course_name (department)
         const grouped = response.data.reduce((acc, curr) => {
           const dept = curr.course_name || "Unknown";
@@ -37,20 +38,22 @@ const ManageDepartmentUsers = () => {
                   <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Acion</th>
                   </tr>
                 </thead>
                 <tbody>
                   {departments[dept].map((user) => (
                     <tr key={user.id}>
-                      <td>{user.student_name}</td>
+                      <td>{user.name}</td>
                       <td>{user.email}</td>
+                      <td><button className="btn btn-warning">Delete</button></td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
           </div>
-        ) : null
+        ) : <h4 className="text-center text-muted">Currently no students Admitted.</h4>
       ))}
     </div>
   );

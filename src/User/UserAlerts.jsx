@@ -21,8 +21,9 @@ const UserAlerts = () => {
   }, []);
 
   const fetchNotifications = () => {
+    const studentId=localStorage.getItem('Id')
     axios
-      .get("http://localhost:8000/api/notifications/")
+      .get(`http://localhost:8000/api/notifications/${studentId}/`)
       .then((response) => {
         console.log(response)
         setNotifications(response.data);

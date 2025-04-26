@@ -11,8 +11,7 @@ import UserRouter from './User/UserRouter';
 import AdminRouter from './Admin/AdminRouter';
 import SubAdminRouter from './SubAdmin/SubAdminRouter';
 import TestAPI from './Clerk/Scholarships';
-import HodSignup from './Auth/HodSignup';
-
+import AdmissionScheduleForm from './SubAdmin/AdmissionScheduleForm';
 function App() {
   return (
     <BrowserRouter>
@@ -39,8 +38,6 @@ const Layout = () => {
            <Route path="/admin/*" element={<AdminRouter />} />
            <Route path="/subadmin/*" element={<SubAdminRouter />} />
            <Route path='/test-api' element={<TestAPI/>} />
-
-           <Route path="/dummy/" element={<HodSignup />} />
 
          </Routes>
       
