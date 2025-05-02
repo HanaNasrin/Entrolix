@@ -1,15 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Pie } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-} from "chart.js";
-
-ChartJS.register(ArcElement, Tooltip, Legend);
 
 const UserAlerts = () => {
   const uploadedDocuments = 7;
@@ -33,16 +24,7 @@ const UserAlerts = () => {
       });
   };
 
-  const pieData = {
-    labels: ["Uploaded", "Remaining"],
-    datasets: [
-      {
-        data: [uploadedDocuments, totalDocuments - uploadedDocuments],
-        backgroundColor: ["#198754", "#e63946"],
-        borderWidth: 1,
-      },
-    ],
-  };
+  
 
   return (
     <div className="container py-4">
@@ -77,30 +59,7 @@ const UserAlerts = () => {
           )}
         </div>
 
-        {/* Pie Chart on the Right */}
-        <div className="col-md-4 d-flex justify-content-center align-items-start">
-          <div style={{ width: "100%", maxWidth: "250px" }}>
-            <Pie
-              data={pieData}
-              options={{
-                responsive: true,
-                plugins: {
-                  legend: {
-                    position: "bottom",
-                    labels: {
-                      boxWidth: 15,
-                      font: { size: 12 },
-                    },
-                  },
-                },
-              }}
-            />
-            <p className="text-center mt-2">
-              <strong>{uploadedDocuments}</strong> of {totalDocuments} documents uploaded
-            </p>
-          </div>
-        </div>
-      </div>
+             </div>
     </div>
   );
 };

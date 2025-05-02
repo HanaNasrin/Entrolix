@@ -1,4 +1,4 @@
-import { ToastContainer,toast } from 'react-bootstrap';
+import { ToastContainer,toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -20,13 +20,16 @@ const Login = () => {
 const handleSubmit=(e)=>{
   e.preventDefault()
 
-  axios.post('http://localhost:8000/api/login/',login).then((response)=>{
+  axios.post('http://localhost:8000/api/login/',login)
+  .then((response)=>{
     console.log(response)
     const role=response.data.data.role
     localStorage.setItem('Id',response.data.data.id)
     localStorage.setItem('studentId',response.data.data.studentId)
 
+    toast.success('Login Successful! ', { autoClose: 2000, position: "top-center" });
 
+    setTimeout(()=>{
     if(role=="admin"){
       navigate('/admin/manageuser')
     }
@@ -36,8 +39,12 @@ const handleSubmit=(e)=>{
     else if(role=="subadmin"){
       navigate('/subadmin/manageadmission')
     }
-}).catch((error)=>{
+  },2000);
+})
+  
+.catch((error)=>{
     console.log(error)
+    toast.error('Login Failed! Please check your credentials.', { autoClose: 3000, position: "top-center" });
   })
 
 
@@ -63,6 +70,18 @@ const handleSubmit=(e)=>{
           </p>
         </form>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 };

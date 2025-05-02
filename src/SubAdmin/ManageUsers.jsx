@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const ManageDepartmentUsers = () => {
+const ViewStudents = () => {
   const [departments, setDepartments] = useState({});
 
   useEffect(() => {
+    fetchStudents();
+  }, []);
+
+  const fetchStudents = () => {
     axios
       .get("http://localhost:8000/api/email/")
       .then((response) => {
         console.log(response)
-        // Group students by course_name (department)
         const grouped = response.data.reduce((acc, curr) => {
           const dept = curr.course_name || "Unknown";
           if (!acc[dept]) acc[dept] = [];
@@ -20,15 +25,43 @@ const ManageDepartmentUsers = () => {
         setDepartments(grouped);
       })
       .catch((error) => {
-        console.log(error);
+        console.error("Error fetching students:", error);
       });
-  }, []);
+  };
+
+  const handleDelete = (studentId) => {
+    axios
+      .delete(`http://localhost:8000/api/studentregister/${studentId}/`)
+      .then((response) => {
+        console.log(response);
+        toast.success("Student deleted successfully!");
+  
+        // Update state by removing the student from departments
+        setDepartments((prevDepartments) => {
+          const newDepartments = { ...prevDepartments };
+          for (const dept in newDepartments) {
+            newDepartments[dept] = newDepartments[dept].filter(
+              (student) => student.id !== studentId
+            );
+          }
+          return newDepartments;
+        });
+  
+        // Optionally, re-fetch the updated list of students from the server
+        fetchStudents();  // Re-fetch students to ensure the data is always up to date
+      })
+      .catch((error) => {
+        console.error("Failed to delete student:", error);
+        toast.error("Failed to delete student.");
+      });
+  };
+  
 
   return (
     <div className="container mt-4">
-      <h2 className="mb-4">Manage Students</h2>
+      <h2 className="mb-4">List of Students</h2>
 
-      {["IT", "EC","ME","PT","EEE","EP"].map((dept) => (
+      {["IT", "EC", "ME", "PT", "EEE", "EP"].map((dept) => (
         departments[dept] ? (
           <div key={dept} className="mb-5">
             <h4 className="mb-3">{dept} Department</h4>
@@ -38,7 +71,7 @@ const ManageDepartmentUsers = () => {
                   <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Acion</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -46,16 +79,27 @@ const ManageDepartmentUsers = () => {
                     <tr key={user.id}>
                       <td>{user.name}</td>
                       <td>{user.email}</td>
-                      <td><button className="btn btn-warning">Delete</button></td>
+                      <td>
+                        <button
+                          className="btn btn-danger btn-sm"
+                          onClick={() => handleDelete(user.id)}
+                        >
+                          Delete
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
           </div>
-        ) : <h4 className="text-center text-muted">Currently no students Admitted.</h4>
+        ) : null
       ))}
+
+      {/* Toasts Container */}
+      <ToastContainer position="top-right" autoClose={2000} />
     </div>
   );
 };
-export default ManageDepartmentUsers;
+
+export default ViewStudents;

@@ -3,6 +3,8 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { ToastContainer, toast } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 import axios from "axios";
 
 const UserSignup = () => {
@@ -23,11 +25,15 @@ const handleSubmit=(e)=>{
     localStorage.setItem("Id",response.data.id)
     localStorage.setItem("studentId",response.data.studentId)
 
-      alert("Student successfully added")
-      navigate('/dashboard/upload')
+    toast.success('Signup Successful! 🎉', { autoClose: 2000, position: "top-center" });
+    setTimeout(() => {
+      navigate('/dashboard/upload');
+    }, 2000); // Wait 2s so user can see the toast
+
     
   }).catch((error)=>{
     console.log(error)
+    toast.error('Signup Failed! Please try again.', { autoClose: 3000, position: "top-center" });
   })
 
 
@@ -55,6 +61,17 @@ const handleSubmit=(e)=>{
           </p>
         </form>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"/>
     </div>
   );
 };

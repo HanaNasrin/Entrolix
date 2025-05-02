@@ -1,7 +1,9 @@
+import {ToastContainer,toast} from "react-toastify";
 import React, { useState } from "react";
-import { Form,  } from "react-bootstrap";
+import { Form  } from "react-bootstrap";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 const UserUpload = () => {
   const [formData, setFormData] = useState({
@@ -55,10 +57,10 @@ const UserUpload = () => {
     try {
       const response = await axios.post("http://localhost:8000/api/upload-certificates/", submissionData)
      console.log(response)
-     alert("Application submitted successfully!");
+     toast.success("Your Documents Are Submitted Successfully!");
     } catch (error) {
       console.error("Error submitting application:", error);
-      alert("Failed to submit application");
+      toast.error("Failed to submit application");
     } finally {
       setLoading(false);
     }
@@ -66,6 +68,21 @@ const UserUpload = () => {
 
   return (
     <div className="container py-5">
+
+<ToastContainer
+  position="top-center"
+  autoClose={2500}
+  hideProgressBar={true}
+  closeOnClick
+  rtl={false}
+  pauseOnFocusLoss
+  draggable
+  pauseOnHover
+  theme="colored"
+/>
+
+
+
       <div className="row justify-content-center">
         <div className="col-md-8 col-sm-12">
           <div className="card shadow-sm">

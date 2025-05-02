@@ -102,7 +102,7 @@ const UserDashboard = () => {
               </Link>
             </li>
             <li className="nav-item mb-2">
-              <Link to="useralerts" className="nav-link text-white">
+              <Link to="userchat" className="nav-link text-white">
                 <FaComments className="me-2" /> Chats
               </Link>
             </li>

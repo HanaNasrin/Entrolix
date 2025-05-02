@@ -5,6 +5,8 @@ import { MdCategory, MdSchool } from "react-icons/md";
 import { Button, Table } from "react-bootstrap";
 import axios from "axios";
 import { data } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify'; // 
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const ManageAdmissions = () => {
   const [admissions, setAdmissions] = useState([]);
@@ -22,21 +24,13 @@ const ManageAdmissions = () => {
       });
   }, []);
 
-  // const formatDate = (dateString) => {
-  //   const date = new Date(dateString);
-  //   return `${date.toLocaleDateString()} ${date.toLocaleTimeString([], {
-  //     hour: "2-digit",
-  //     minute: "2-digit",
-  //   })}`;
-  // };
-
   const approveApplication = (id) => {
     axios
       .patch(`http://localhost:8000/api/upload-certificates/${id}/`)
       .then(() => {
         console.log(data)
         setAdmissions((prev) => prev.filter((admission) => admission.id !== id));
-        alert("The admission is approved")
+        toast.success("The admission is approved! ", { autoClose: 3000, position: "top-center" });
       })
       .catch((error) => {
         console.log(error);
@@ -49,7 +43,8 @@ const ManageAdmissions = () => {
       .then((response) => {
         console.log(response)
         setAdmissions((prev) => prev.filter((admission) => admission.id !== id));
-        alert("The admission is Rejected")
+        toast.success("The admission is rejected! ❌", { autoClose: 3000, position: "top-center" });
+
       })
       .catch((error) => {
         console.log(error);
@@ -147,6 +142,16 @@ const ManageAdmissions = () => {
           ))}
         </div>
       )}
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        pauseOnHover
+        theme="colored"/>
     </div>
   );
 };

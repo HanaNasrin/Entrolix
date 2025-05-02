@@ -11,7 +11,7 @@ import UserRouter from './User/UserRouter';
 import AdminRouter from './Admin/AdminRouter';
 import SubAdminRouter from './SubAdmin/SubAdminRouter';
 import TestAPI from './Clerk/Scholarships';
-import AdmissionScheduleForm from './SubAdmin/AdmissionScheduleForm';
+import NotFound from './Components/NotFound';
 function App() {
   return (
     <BrowserRouter>
@@ -38,7 +38,7 @@ const Layout = () => {
            <Route path="/admin/*" element={<AdminRouter />} />
            <Route path="/subadmin/*" element={<SubAdminRouter />} />
            <Route path='/test-api' element={<TestAPI/>} />
-
+           <Route path='/*' element={<NotFound/>} />
          </Routes>
       
          {isAdmin?null:<Footer/>}       

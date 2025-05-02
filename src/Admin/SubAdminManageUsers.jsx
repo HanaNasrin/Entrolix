@@ -18,6 +18,20 @@ const SubAdminManageUsers = () => {
       });
   }, []);
 
+  const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this sub-admin?")) {
+      try {
+        await axios.delete(`http://localhost:8000/api/subadminregister/${id}/`);
+        alert("Subadmin deleted successfully.");
+        setSubadmin(subadmin.filter(user => user.id !== id)); // Remove deleted user from UI
+      } catch (error) {
+        console.error("Error deleting subadmin:", error.response?.data || error.message);
+        alert("Failed to delete subadmin.");
+      }
+    }
+  };
+  
+
   return (
     <div className="container mt-4">
       <h3 className="mb-3">Manage Sub Users</h3>
@@ -37,9 +51,9 @@ const SubAdminManageUsers = () => {
               <td>{user.email}</td>
               <td>{user.phone_number}</td> {/* Displaying phone number */}
               <td>
-                <button className="btn btn-warning">
-                  Delete
-                </button>
+              <button className="btn btn-warning" onClick={() => handleDelete(user.id)}>
+                Delete
+              </button>
               </td>
             </tr>
           ))}
