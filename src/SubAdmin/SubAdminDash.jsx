@@ -120,7 +120,7 @@ import {
   FaUsers,
   FaChartBar,
   FaGift,
-  FaBars
+  FaBars,FaComments
 } from "react-icons/fa";
 
 const SubAdminDash = () => {
@@ -168,6 +168,11 @@ const SubAdminDash = () => {
             <Link to="/subadmin/reports" className="nav-link text-white">
               <FaChartBar className="me-2" /> Reports
             </Link>
+          </li>
+          <li className="nav-item mb-2">
+                          <Link to="messages" className="nav-link text-white">
+                            <FaComments className="me-2" /> Chats
+                          </Link>
           </li>
           <li className="nav-item mb-2">
             <Link to="/subadmin/scholarships" className="nav-link text-white">

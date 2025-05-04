@@ -4,7 +4,7 @@ import ManageAdmission from "./ManageAdmission";
 import ManageUsers from "./ManageUsers";
 import SubAdminReports from "./SubAdminReports";
 import SubAdminDash from "./SubAdminDash";
-import AdmissionScheduleForm from "./AdmissionScheduleForm";
+import StudentMessages from "./StudentMessages";
 
 const SubAdminRouter = () =>{
 
@@ -15,7 +15,7 @@ const SubAdminRouter = () =>{
                 <Route path="/manageadmission" element={<ManageAdmission />} />
                 <Route path="/manageusers" element={<ManageUsers />} />
                 <Route path="/reports" element={<SubAdminReports />} />
-                <Route path="/form" element={<AdmissionScheduleForm/>} />
+                <Route path="/messages" element={<StudentMessages/>} />
 
             </Route>
     </Routes>

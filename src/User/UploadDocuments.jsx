@@ -60,8 +60,17 @@ const UserUpload = () => {
      toast.success("Your Documents Are Submitted Successfully!");
     } catch (error) {
       console.error("Error submitting application:", error);
-      toast.error("Failed to submit application");
-    } finally {
+      if (
+        error.response &&
+        error.response.status === 400 &&
+        error.response.data?.error === "An application already exists for this student."
+      ) {
+        toast.warning("You have already submitted an application.");
+      } else {
+        toast.error("Failed to submit application");
+      }
+    }
+     finally {
       setLoading(false);
     }
   };
