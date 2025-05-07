@@ -23,7 +23,7 @@ const UserUpload = () => {
     migration_certificate: null,
     });
   const [category, setCategory] = useState("merit"); // Default selection
-  const courses = ["IT", "PT", "EC", "EEE", "ME", "EP"];
+  const courses = ["CS", "PT", "EC", "EEE", "ME", "EP"];
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -42,7 +42,7 @@ const UserUpload = () => {
     setLoading(true);
 
 
-    // console.log("studentid"+Id)
+    
 
 
     const submissionData = new FormData();
