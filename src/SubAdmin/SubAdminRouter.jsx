@@ -5,6 +5,7 @@ import ManageUsers from "./ManageUsers";
 import SubAdminReports from "./SubAdminReports";
 import SubAdminDash from "./SubAdminDash";
 import StudentMessages from "./StudentMessages";
+import Scholarships from "./Scholarships";
 
 const SubAdminRouter = () =>{
 
@@ -16,6 +17,7 @@ const SubAdminRouter = () =>{
                 <Route path="/manageusers" element={<ManageUsers />} />
                 <Route path="/reports" element={<SubAdminReports />} />
                 <Route path="/messages" element={<StudentMessages/>} />
+                <Route path="/scholarships" element={<Scholarships/>} />
 
             </Route>
     </Routes>

@@ -207,7 +207,7 @@ const StudentMessagesWithReplies = () => {
           {messages.map((msg) => (
             <div className="card mb-3" key={msg.id}>
               <div className="card-header bg-light">
-                <strong>{msg.student_name}</strong> (ID: {msg.student_id})
+                <strong>{msg.student_name}</strong> 
               </div>
               <div className="card-body">
                 <p><strong>Message:</strong> {msg.text}</p>

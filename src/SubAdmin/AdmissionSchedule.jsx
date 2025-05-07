@@ -218,9 +218,6 @@ const AdmissionSchedule = () => {
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h3 className="mb-0">Admission Schedule</h3>
-        <Button className="btn btn-warning" onClick={handlePublishClick}>
-          Publish to Homepage
-        </Button>
       </div>
       <table className="table table-bordered">
         <thead className="table-dark">
@@ -235,7 +232,7 @@ const AdmissionSchedule = () => {
           {schedule.map((item, index) => (
             <tr key={item.id}>
               <td>{item.department_display}</td>
-              <td>{item.date_of_joining}</td>
+              <td>{item.date_of_joining_display}</td>
               <td>{item.time_of_joining_display}</td>
               <td>
                 <Button variant="primary" onClick={() => handleEditClick(index)}>
@@ -278,9 +275,6 @@ const AdmissionSchedule = () => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Cancel
-          </Button>
           <Button variant="success" onClick={handleSave}>
             Save Changes
           </Button>

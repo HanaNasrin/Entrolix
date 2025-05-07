@@ -127,7 +127,7 @@ const ChatWithSubadmin = () => {
         <div className="col-12 col-md-8 col-lg-6">
           <div className="card shadow rounded-4">
             <div className="card-header bg-primary text-white">
-              Chat with Subadmin
+              Chat with Administrator
             </div>
             <div
               className="card-body"
