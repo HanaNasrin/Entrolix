@@ -252,7 +252,7 @@ const AdmissionSchedule = () => {
         <Modal.Body>
           <form>
             <div className="mb-3">
-              <label className="form-label">Date of Joining</label>
+              <label className="form-label">Date of Admission</label>
               <input
                 type="date"
                 className="form-control"
