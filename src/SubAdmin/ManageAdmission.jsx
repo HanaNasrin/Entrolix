@@ -63,8 +63,8 @@ const ManageAdmissions = () => {
               <div className={`card ${expanded === admission.id ? "border-primary shadow" : ""}`}>
                 <div className="card-body d-flex flex-wrap justify-content-between align-items-center">
                   <div><FiUser className="text-primary me-2" /> {admission.student_name}</div>
-                  {/* <div><FiCalendar className="text-primary me-2" /> {formatDate(admission.date)}</div> */}
-                  <div><FiFileText className="text-primary me-2" /> {admission.documentsUploaded}</div>
+                  {/* <div><FiCalendar className="text-primary me-2" /> {formatDate(admission.date)}</div>
+                  <div><FiFileText className="text-primary me-2" /> {admission.documentsUploaded}</div> */}
                   <div><MdCategory className="text-primary me-2" /> {admission.type}</div>
                   <div><MdSchool className="text-primary me-2" /> {admission.course_name}</div>
                   <div>
@@ -91,7 +91,7 @@ const ManageAdmissions = () => {
                       <tbody>
                         {[
                           { label: "Admit Card / Allotment Memo / Data Sheet", value: admission.admit_card },
-                          { label: "Fee Receipt", value: admission.fee_receipt },
+                          { label: "Fee Receipt", value: admission.fee_reciept },
                           { label: "SSLC / 10th Mark List", value: admission.sslc_certificate },
                           { label: "Plus Two / Diploma Certificate", value: admission.plus_two_certificate },
                           { label: "Passport Size Photo", value: admission.passport_size_photo },
@@ -101,8 +101,8 @@ const ManageAdmissions = () => {
                           { label: "Nativity Certificate", value: admission.nativity_certificate },
                           { label: "Transfer Certificate", value: admission.transfer_certificate },
                           { label: "Conduct Certificate", value: admission.conduct_certificate },
-                          { label: "Medical Fitness Certificate", value: admission.fitness_certificate },
-                          { label: "Migration Certificate", value: admission.migration_certificate },
+                          { label: "Medical Fitness Certificate", value: admission.physical_certificate },
+                          // { label: "Migration Certificate", value: admission.migration_certificate },
                         ].map((doc, idx) => (
                           <tr key={idx}>
                             <td>{doc.label}</td>
@@ -132,7 +132,7 @@ const ManageAdmissions = () => {
                         Approve
                       </Button>
                       <Button variant="danger" onClick={() => removeApplication(admission.id)}>
-                        Remove
+                        Reject
                       </Button>
                     </div>
                   </div>

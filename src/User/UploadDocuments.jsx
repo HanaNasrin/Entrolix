@@ -190,10 +190,10 @@ const UserUpload = () => {
                             <Form.Label>Physical/Medical Fitness Certificate (As per CEE Format)</Form.Label>
                             <Form.Control type="file" name="physical_certificate" onChange={handleChange} />
                   </Form.Group>
-                  <Form.Group controlId="">
+                  {/* <Form.Group controlId="">
                             <Form.Label>Migration Certificate (Original)</Form.Label>
                             <Form.Control type="file" name="migration_certificate" onChange={handleChange} />
-                  </Form.Group>
+                  </Form.Group> */}
                   <button type="submit" className="btn btn-primary w-100" disabled={loading}>
                                 {loading ? "Submitting..." : "Submit"}
                   </button>
@@ -235,7 +235,7 @@ const UserUpload = () => {
                   </div>
                   <div className="mb-3">
                     <label className="form-label">Copy of Fee Receipt</label>
-                    <input type="file" className="form-control" />
+                    <input type="file" name="fee_reciept" className="form-control" />
                   </div>
                   <div className="mb-3">
                     <label className="form-label">Community/Nativity/Income Certificate (For Reservation Category)</label>
@@ -243,20 +243,20 @@ const UserUpload = () => {
                   </div>
                   <div className="mb-3">
                     <label className="form-label">Transfer Certificate (Original)</label>
-                    <input type="file" className="form-control" />
+                    <input type="file" name="transfer_certificate" className="form-control" />
                   </div>
                   <div className="mb-3">
                     <label className="form-label">Conduct Certificate (Obtained within 6 months)</label>
-                    <input type="file" className="form-control" />
+                    <input type="file" name="conduct_certificate" className="form-control" />
                   </div>
                   <div className="mb-3">
-                    <label className="form-label">Physical/Medical Fitness Certificate (As per CEE Format)</label>
-                    <input type="file" className="form-control" />
+                    <label className="form-label">Physical/Medical Fitness Certificate</label>
+                    <input type="file" name="physical_certificate" className="form-control" />
                   </div>
-                  <div className="mb-3">
+                  {/* <div className="mb-3">
                     <label className="form-label">Migration Certificate (Original)</label>
                     <input type="file" className="form-control" />
-                  </div>
+                  </div> */}
                   <button type="submit" className="btn btn-primary w-100">Submit</button>
                 </form>
               )}
